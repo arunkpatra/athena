@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 <img src="athena.png" width="1020" alt="Athena" />
 
 US shoppers spent around **$40 Billion** this year on Gift Cards. Historically speaking, around **$1.2 Billion** of this will
