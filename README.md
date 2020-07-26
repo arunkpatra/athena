@@ -35,23 +35,20 @@ factor is a function of multiple parameters that might include customer profile,
 the smart insights mentioned above.
  
 ## The architecture: How does the blueprint of the solution look like?
-
 See [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## Key Usecases: Where the rubber meets the road
 
-1. As a gift card issuer, I want to see by card type, chances of breakage and a projected brekage value at a given point
+1. As a gift card issuer, I want to see by card type, breakage probability and projected breakage value at a given point
 in time. A simple UI is just fine. If you can aggregate by brand, that's awesome. If you can show me an overall predicted
-escheatment value, it would be great.
+escheatment value for my business, it would be great.
 
 2. As a gift card issuer, I want the system to tell me the best possible time when notifications should be generated to
 customers so that I can maximize uplift. It's awesome to see a predicted uplift value in response to this action that
 was taken.
 
 ## The design: How do I engineer the solution?
-
 See [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## The engineering: Ensure, that we deliver great quality, fast, with every release. Move it!
-
 See [DEVELOPMENT.md](DEVELOPMENT.md)
