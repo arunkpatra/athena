@@ -15,8 +15,8 @@ the GC sale revenue is nothing more than a liability on the books till the consu
 
 ## The problem: What business actually wants?
 
-1. Minimize escheatment. Its just a risk and doesn't help my business. Solve the breakage problem to start with please.
-2. Maximize uplift. That's a major success criteria for my business.
+1. **Minimize escheatment** - Its just a risk and doesn't help my business. Solve the breakage problem to start with please.
+2. **Maximize uplift** - That's a major success criteria for my business.
 
 ## The expectation: What business needs to meet stated goals?
 
