@@ -2,7 +2,7 @@
 [![Join the chat at https://gitter.im/athena-chat/community](https://badges.gitter.im/athena-chat/community.svg)](https://gitter.im/athena-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-<img src="athena.png" width="1020" alt="Athena" />
+<img src="athena.png" width="816" alt="Athena" />
 
 ## The context
 
