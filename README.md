@@ -56,3 +56,6 @@ See [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## The engineering: Deliver great quality, fast, with every release.
 See [DEVELOPMENT.md](DEVELOPMENT.md)
+
+## Mantra for Success
+_Thing big, start small._
