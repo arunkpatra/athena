@@ -52,5 +52,5 @@ was taken.
 ## The design: How do I engineer the solution?
 See [ARCHITECTURE.md](ARCHITECTURE.md)
 
-## The engineering: Ensure, that we deliver great quality, fast, with every release. Move it!
+## The engineering: Deliver great quality, fast, with every release.
 See [DEVELOPMENT.md](DEVELOPMENT.md)
