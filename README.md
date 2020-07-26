@@ -18,12 +18,12 @@ the GC sale revenue is nothing more than a liability on the books till the consu
 
 ## The expectation: What business needs to meet stated goals?
 
-1. Give me tools to predict breakage values each quarter by card type. I need this for planning and protect my Gift card business better. 
-2. Give me tools to notify customers and hence prevent breakage, thereby creating uplift. This is a key success factor for Athena.
+1. Give me tools to predict breakage values each quarter by card type. I need this for planning and to protect my Gift card business better. 
+2. Give me tools to notify customers and hence prevent breakage, thereby creating uplift hopefully. This is a key success factor for Athena.
 
 ## The approach: How do we meet business expectations?
 
-1. Either use historical data around breakage or train a model to predict breakage numbers. Find out when redemption
+1. Use historical data around breakage and/or train a model to predict breakage numbers. Find out when redemption
 chances become remote. 
 2. Try to formulate a 'smart' strategy to trigger notifications to the customer so that chances of actual redemption
 are highest. A 'dumb' strategy would be to just trigger notifications a week or two weeks prior to expiry. The smartness
