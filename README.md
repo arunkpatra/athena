@@ -15,7 +15,7 @@ as much as possible. That **increases the chances of uplift**, acquire new custo
 the business to **keep the revenue from the gift card sales** at the first place (technically speaking in accounting terms, 
 the GC sale revenue is nothing more than a liability on the books till the consumer actually redeems the gift card!)
 
-## The problem: What business actually wants?
+## The problem: What business really wants?
 
 1. **Minimize escheatment** - Its just a risk and doesn't help my business. Solve the breakage problem to start with please.
 2. **Maximize uplift** - That's a major success criteria for my business.
