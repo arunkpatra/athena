@@ -8,8 +8,11 @@
 -- 2. What was the breakage on each such card?
 -- 3. Group by card type and sum ALL breakages. That gives the total breakage for a card type
 
-select CC.gc_name, CC.gc_type_code card_type_code, BB.total_breakage_value as ytd_breakage, CURRENT_DATE as as_of_date
-from (select ACB.card_type_code, sum(ACB.breakage) as total_breakage_value
+select CC.gc_name, CC.gc_type_code card_type_code,
+       BB.total_purchase_value as ytd_purchase_value,
+       BB.total_breakage_value as ytd_breakage, (BB.total_breakage_value / BB.total_purchase_value)* 100 as breakage_rate,
+       CURRENT_DATE as as_of_date
+from (select ACB.card_type_code, sum(ACB.purchase_value) as total_purchase_value, sum(ACB.breakage) as total_breakage_value
       from (select card.gc_uuid,
                    card.gc_type_code                 as card_type_code,
                    P.tx_value                        as purchase_value,
