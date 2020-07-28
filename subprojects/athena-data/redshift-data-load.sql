@@ -17,3 +17,7 @@ copy customer from 's3://arunkpatra-athena/customer-data.csv'
 copy transaction from 's3://arunkpatra-athena/transaction-data.csv'
     credentials 'aws_iam_role=arn:aws:iam::459024718193:role/myRedshiftRole'
     delimiter ',' dateformat 'YYYY-MM-DD' region 'ap-south-1' ignoreheader 1;
+
+copy historical_breakage_rate from 's3://arunkpatra-athena/historical-breakage-rate-data.csv'
+    credentials 'aws_iam_role=arn:aws:iam::459024718193:role/myRedshiftRole'
+    delimiter ',' dateformat 'YYYY-MM-DD' region 'ap-south-1' ignoreheader 1;

@@ -3,6 +3,7 @@ drop table if exists merchant;
 drop table if exists card;
 drop table if exists customer;
 drop table if exists transaction;
+drop table if exists historical_breakage_rate;
 
 -- card type
 create table card_type(
@@ -53,4 +54,15 @@ create table transaction(
     tx_type varchar(32),
     tx_value decimal(5,2),
     tx_date date
-)
+);
+
+-- transaction log
+create table historical_breakage_rate(
+                            gc_name varchar(64) not null,
+                            gc_type_code varchar(16),
+                            ytd_purchase_value decimal(9,2),
+                            ytd_breakage decimal(9,2),
+                            breakage_rate decimal(5,2),
+                            as_of_year integer
+
+);
