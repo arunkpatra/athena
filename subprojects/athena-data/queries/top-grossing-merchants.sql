@@ -1,5 +1,6 @@
 -- Top grossing merchants in last 6 months
 
+-- Verified: OK
 select merchant.merchant_name, gross_merchant_sale
 from (select sum(tx_value) as gross_merchant_sale, merchant_code
       from transaction

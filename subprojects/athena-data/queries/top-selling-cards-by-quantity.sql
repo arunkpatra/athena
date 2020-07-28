@@ -1,5 +1,7 @@
 -- top 10 most selling cards by quantity this year
 
+-- Verified: OK
+
 select gc_name, sale_qty
 from (select count(*) as sale_qty, gc_type_code
       from transaction

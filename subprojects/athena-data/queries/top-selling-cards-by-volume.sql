@@ -1,5 +1,7 @@
 -- top 10 most selling cards by volume this year
 
+-- Verified: OK
+
 select gc_name, total_sales
 from (select sum(tx_value) as total_sales, gc_type_code
       from transaction
