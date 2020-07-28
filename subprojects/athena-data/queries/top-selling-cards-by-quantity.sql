@@ -1,9 +1,9 @@
--- top 10 most selling cards by quantity
+-- top 10 most selling cards by quantity this year
 
 select gc_name, sale_qty
 from (select count(*) as sale_qty, gc_type_code
       from transaction
-      where tx_type = 'PURCHASE'
+      where tx_type = 'PURCHASE' and (CURRENT_DATE::date - tx_date) < 365
       group by gc_type_code
       order by sale_qty desc
       limit 10) Q,

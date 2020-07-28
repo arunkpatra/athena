@@ -1,4 +1,4 @@
--- Gross breakage by merchant as of today
+-- YTD Gross breakage by merchant as of today
 -- Description: Find out merchants with highest value of breakages across cards they sell.
 
 select M.merchant_name, GMB.merchant_breakage
@@ -17,7 +17,7 @@ from (
                         from transaction
                         where tx_type = 'REDEMPTION'
                         group by gc_type_code) TR,
-                       (select * from card where gc_expiry_date < current_date) B,
+                       (select * from card where gc_expiry_date < current_date and (CURRENT_DATE::date - gc_expiry_date) < 365) B,
                        card_type C
                   where B.gc_type_code = TS.gc_type_code
                     and B.gc_type_code = TR.gc_type_code
