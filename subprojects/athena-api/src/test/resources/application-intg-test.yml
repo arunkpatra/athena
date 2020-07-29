@@ -5,3 +5,13 @@ spring:
     driver-class-name: 'org.postgresql.Driver'
     username: test
     password: test
+    continue-on-error: false
+    data: classpath:sql/athena-data.sql
+    hikari:
+      connection-test-query: SELECT 1
+      maximum-pool-size: 50
+      minimum-idle: 10
+    name: test
+    platform: postgresql
+    schema: classpath:sql/athena-schema.sql
+    initialization-mode: always

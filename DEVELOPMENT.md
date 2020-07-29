@@ -45,7 +45,7 @@ If you want to build **athena** from source , follow the steps mentioned here.
     * Ensure that you have loaded data into the S3 bucket. See `subprojects/athena/redshift-data-load.sql` for bucket 
     and file names. You can upload all the files in the `subprojects/athena/data/` directory to your S3 bucket. 
     Provide permissions as necessary.
-    * Ensure that you have run the `subprojects/athena/athena-ddl.sql` script. If you run this in the Redshift Editor directly.
+    * Ensure that you have run the `subprojects/athena/athena-schema.sql` script. If you run this in the Redshift Editor directly.
     * Now run the Athena REST APi app
         ``` 
         cd athena

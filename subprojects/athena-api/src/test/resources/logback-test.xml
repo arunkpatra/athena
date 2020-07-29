@@ -4,11 +4,11 @@
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <jmxConfigurator/>
 
-    <logger name="org.almamater.api" level="INFO" additivity="false">
+    <logger name="org.athena.api" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 
-    <logger name="org.springframework.boot" level="WARN" additivity="false">
+    <logger name="org.springframework" level="WARN" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
 
@@ -16,7 +16,7 @@
         <appender-ref ref="CONSOLE"/>
     </logger>
 
-    <root level="INFO">
+    <root level="WARN">
         <appender-ref ref="CONSOLE"/>
     </root>
 

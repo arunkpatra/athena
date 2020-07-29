@@ -15,13 +15,21 @@
 
 package org.athena.api;
 
+import org.athena.api.model.Merchant;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+
 public class AthenaApiApplicationTests extends AbstractTest {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(org.athena.api.AthenaApiApplicationTests.class);
+
 
     @Autowired
     private ApplicationContext context;
@@ -32,6 +40,18 @@ public class AthenaApiApplicationTests extends AbstractTest {
     @Test
     public void contextLoads() {
         validateBeanExistence(JdbcTemplate.class);
+    }
+
+    @Test
+    public void testDBSanity() {
+        LOGGER.info("Querying for customer records where first_name = 'Josh':");
+        List<Merchant> merchants = jdbcTemplate.query("SELECT merchant_code, merchant_name FROM merchant;",
+                (rs, rowNum) -> new Merchant(rs.getString(1), rs.getString(2))
+        );
+        Assert.assertTrue(FAILURE_CHAR + "Expected at least one merchant", merchants.size() != 0);
+
+        merchants.forEach(merchant -> LOGGER.info(merchant.toString()));
+        LOGGER.info(SUCCESS_CHAR + "Retrieved merchants successfully.");
     }
 
     private void validateBeanExistence(Class<?>... types) {
