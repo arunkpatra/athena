@@ -60,8 +60,6 @@ See [DEVELOPMENT.md](DEVELOPMENT.md)
 
 The APIs developed as part of the programming challenge:
 
----
-
 <img src="assets/athena-swagger-ui.png" width="1280px" alt="Athena Swagger UI" />
 
 ## Mantra for Success
