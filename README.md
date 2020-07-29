@@ -2,12 +2,11 @@
 [![Build Status](https://travis-ci.org/arunkpatra/athena.svg?branch=master)](https://travis-ci.org/arunkpatra/athena)
 [![Coverage Status](https://coveralls.io/repos/github/arunkpatra/athena/badge.svg?branch=master)](https://coveralls.io/github/arunkpatra/athena?branch=master)
 [![Issues](https://img.shields.io/github/issues/arunkpatra/athena.svg)](https://github.com/arunkpatra/athena/issues)
+[![Latest Release](https://img.shields.io/github/v/release/arunkpatra/athena?include_prereleases&sort=semver)](https://img.shields.io/github/v/release/arunkpatra/athena?include_prereleases&sort=semver)
 [![Join the chat at https://gitter.im/athena-chat/community](https://badges.gitter.im/athena-chat/community.svg)](https://gitter.im/athena-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 <img src="athena.png" width="350px" alt="Athena" />
-
-## The context
 
 US shoppers spent around **$40 Billion** last year on Gift Cards. Around **$1.2 Billion** of this was left unredeemed. Based on existing regulation in various states, governments can claim away this money from 
 businesses selling these gift cards. Interestingly, as one is aware, its best to ensure that customers redeem gift cards 
