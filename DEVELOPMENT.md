@@ -40,7 +40,8 @@ If you want to build **athena** from source , follow the steps mentioned here.
     ``` 
 - Starting the Athena Spring Boot app (the REST API app)
     * Ensure that your Redshift cluster is running and shows an `Available` status. Make sure to setup permissions based
-    on your environment.
+    on your environment, and you have IAM roles setup correctly. The end result should be that, **you should be able to
+    access Redshift via the Redshift JDBC driver from the machine and network you intend to start the Athena REST API app**.
     * Ensure that you have loaded data into the S3 bucket. See `subprojects/athena/redshift-data-load.sql` for bucket 
     and file names. You can upload all the files in the `subprojects/athena/data/` directory to your S3 bucket. 
     Provide permissions as necessary.
