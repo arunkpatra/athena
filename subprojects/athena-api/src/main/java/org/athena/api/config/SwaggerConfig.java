@@ -48,7 +48,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
         return new ApiInfo(
                 "Athena REST API Documentation",
                 "REST APIs for Athena. These APIs expose capability to get insights from Athena.",
-                "0.0.1",
+                "1.0.0",
                 "Terms of service",
                 new Contact("Athena", "www.athena.org", "info@athena.org"),
                 "MIT", "https://opensource.org/licenses/MIT", Collections.emptyList());

@@ -18,4 +18,11 @@ public class CardBreakageForecastResponse {
     public CardBreakageForecast getForecast() {
         return forecast;
     }
+
+    @Override
+    public String toString() {
+        return "CardBreakageForecastResponse{" +
+                "forecast=" + forecast +
+                '}';
+    }
 }

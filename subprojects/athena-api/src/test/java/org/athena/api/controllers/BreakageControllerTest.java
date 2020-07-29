@@ -51,9 +51,9 @@ public class BreakageControllerTest extends AbstractTest {
                 Optional.empty(),
                 Optional.empty(),
                 CardBreakageForecastResponse.class);
+        LOGGER.info("Forecast: {}", response);
         Assert.assertNotNull("Empty response is unexpected", response.getForecast());
         Assert.assertNotNull("Expected nun null value", response.getForecast().getCardCode());
-        Assert.assertNotNull("Expected nun null value", response.getForecast().getCardName());
         Assert.assertTrue("Was not expecting negative value", response.getForecast().getBreakageForecast() >= 0);
     }
 }

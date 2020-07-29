@@ -6,7 +6,7 @@
 [![Join the chat at https://gitter.im/athena-chat/community](https://badges.gitter.im/athena-chat/community.svg)](https://gitter.im/athena-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-<img src="athena.png" width="350px" alt="Athena" />
+<img src="assets/athena.png" width="350px" alt="Athena" />
 
 US shoppers spent around **$40 Billion** last year on Gift Cards. Around **$1.2 Billion** of this was left unredeemed. Based on existing regulation in various states, governments can claim away this money from 
 businesses selling these gift cards. Interestingly, as one is aware, its best to ensure that customers redeem gift cards 

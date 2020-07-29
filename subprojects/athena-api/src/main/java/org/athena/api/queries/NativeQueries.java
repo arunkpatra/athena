@@ -94,4 +94,18 @@ public class NativeQueries {
                     "     card_type CC \n" +
                     "where BB.card_type_code = CC.gc_type_code\n" +
                     "order by BB.total_breakage_value desc;";
+
+    public static final String HISTORICAL_BREAKAGE_RATE_BY_CARD =
+            "select * from historical_breakage_rate WHERE gc_type_code = ?;";
+
+    public static final String SALES_THIS_YEAR_BY_CARD =
+            "select gc_name, V.gc_type_code, total_sales, date_part('year', CURRENT_DATE) as year\n" +
+                    "from (select sum(tx_value) as total_sales, gc_type_code\n" +
+                    "      from transaction\n" +
+                    "      where tx_type = 'PURCHASE' and date_part('year', tx_date) = date_part('year', CURRENT_DATE) and gc_type_code = ?\n" +
+                    "      group by gc_type_code\n" +
+                    "      order by total_sales desc) V,\n" +
+                    "     card_type\n" +
+                    "where V.gc_type_code = card_type.gc_type_code\n" +
+                    "order by V.total_sales desc;";
 }

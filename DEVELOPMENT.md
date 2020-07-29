@@ -51,4 +51,5 @@ If you want to build **athena** from source , follow the steps mentioned here.
         cd athena
         ./gradlew bootRun
         ```
-    * Access **Swagger UI** at http://localhost:8080/swagger-ui.html. You should be able to invoke API calls.
+    * Access **Swagger UI** at http://localhost:8080/swagger-ui.html. You should be able to invoke API calls.  
+    <img src="assets/athena-swagger-ui.png" width="1280px" alt="Athena" />
