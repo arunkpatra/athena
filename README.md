@@ -56,5 +56,10 @@ See [ARCHITECTURE.md](ARCHITECTURE.md)
 ## The engineering: Deliver great quality, fast, with every release
 See [DEVELOPMENT.md](DEVELOPMENT.md)
 
+## Screenshot
+
+The APIs developed as part of the programming challenge:
+<img src="assets/athena-swagger-ui" width="350px" alt="Athena Swagger UI" />
+
 ## Mantra for Success
 _Thing big, start small..._
