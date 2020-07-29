@@ -57,4 +57,4 @@ See [ARCHITECTURE.md](ARCHITECTURE.md)
 See [DEVELOPMENT.md](DEVELOPMENT.md)
 
 ## Mantra for Success
-_Thing big, start small._
+_Thing big, start small..._
