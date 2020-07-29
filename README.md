@@ -56,7 +56,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md)
 ## The engineering: Deliver great quality, fast, with every release
 See [DEVELOPMENT.md](DEVELOPMENT.md)
 
-## Screenshot
+## Screenshot: The proof is in the pudding
 
 The APIs developed as part of the programming challenge:
 
