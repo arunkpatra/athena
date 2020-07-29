@@ -1,6 +1,7 @@
 package org.athena.api.controllers;
 
 import org.athena.api.AbstractTest;
+import org.athena.api.model.ErrorResponse;
 import org.athena.api.model.TopGrossingCardsResponse;
 import org.athena.api.model.TopSellingCardsByQuantityResponse;
 import org.junit.Assert;
@@ -14,7 +15,7 @@ public class CardControllerTest extends AbstractTest {
     @Test
     public void getTopSellingCardsByQuantityTest() throws Exception {
         TopSellingCardsByQuantityResponse response = mockHttpExchange(
-                get("/api/cards/topselling"),
+                get("/api/card/topselling"),
                 status().isOk(),
                 Optional.empty(),
                 Optional.empty(),
@@ -27,7 +28,7 @@ public class CardControllerTest extends AbstractTest {
     @Test
     public void getTopGrossingCardsTest() throws Exception {
         TopGrossingCardsResponse response = mockHttpExchange(
-                get("/api/cards/topgrossing"),
+                get("/api/card/topgrossing"),
                 status().isOk(),
                 Optional.empty(),
                 Optional.empty(),

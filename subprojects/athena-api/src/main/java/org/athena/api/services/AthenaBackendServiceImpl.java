@@ -1,5 +1,6 @@
 package org.athena.api.services;
 
+import org.athena.api.model.MerchantSales;
 import org.athena.api.model.TopGrossingCard;
 import org.athena.api.model.TopSellingCardByQuantity;
 import org.athena.api.queries.NativeQueries;
@@ -32,5 +33,16 @@ public class AthenaBackendServiceImpl implements AthenaBackendService{
         return jdbcTemplate.query(NativeQueries.TOP_GROSSING_CARDS,
                 (rs, rowNum) -> new TopGrossingCard(rs.getString(1).trim(), rs.getFloat(2))
         );
+    }
+
+    public List<MerchantSales> getTopGrossingMerchants() {
+        return jdbcTemplate.query(NativeQueries.TOP_GROSSING_MERCHANTS,
+                (rs, rowNum) -> new MerchantSales(rs.getString(1).trim(), rs.getDouble(2))
+        );
+    }
+
+    @Override
+    public List<MerchantSales> getWorstPerformingMerchants() {
+        throw new UnsupportedOperationException();
     }
 }

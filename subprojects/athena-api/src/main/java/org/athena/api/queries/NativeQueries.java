@@ -25,4 +25,15 @@ public class NativeQueries {
                     "     card_type\n" +
                     "where V.gc_type_code = card_type.gc_type_code\n" +
                     "order by V.total_sales desc;";
+
+    public static final String TOP_GROSSING_MERCHANTS =
+            "select merchant.merchant_name, gross_merchant_sale\n" +
+                    "from (select sum(tx_value) as gross_merchant_sale, merchant_code\n" +
+                    "      from transaction\n" +
+                    "      where tx_type = 'PURCHASE'\n" +
+                    "        and (CURRENT_DATE::date - tx_date) < 180\n" +
+                    "      group by merchant_code) MV,\n" +
+                    "     merchant\n" +
+                    "where MV.merchant_code = merchant.merchant_code\n" +
+                    "order by MV.gross_merchant_sale desc;";
 }

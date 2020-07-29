@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.List;
 
 @ApiModel(value = "TopGrossingCardsResponse", description = "Top selling cards by volume")
-
 public class TopGrossingCardsResponse {
 
     @ApiModelProperty(value = "Top grossing cards")

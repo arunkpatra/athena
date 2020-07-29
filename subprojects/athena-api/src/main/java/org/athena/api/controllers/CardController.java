@@ -17,7 +17,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @CrossOrigin
 @RestController
-@Api(tags = {"Cards"})
+@Api(tags = {"Cards"}, value = "Operations related to Gift Cards")
 public class CardController extends AbstractAthenaRestController {
 
     private final AthenaBackendService athenaBackendService;
@@ -30,7 +30,7 @@ public class CardController extends AbstractAthenaRestController {
             notes = "Get top selling cards by quantity", response = TopSellingCardsByQuantityResponse.class,
             consumes = "application/json",
             produces = "application/json")
-    @RequestMapping(value = "/cards/topselling", method = GET)
+    @RequestMapping(value = "/card/topselling", method = GET)
     @ResponseBody
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Top selling cards were retrieved",
@@ -50,7 +50,7 @@ public class CardController extends AbstractAthenaRestController {
             notes = "Get top selling cards by volume", response = TopGrossingCardsResponse.class,
             consumes = "application/json",
             produces = "application/json")
-    @RequestMapping(value = "/cards/topgrossing", method = GET)
+    @RequestMapping(value = "/card/topgrossing", method = GET)
     @ResponseBody
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Top grossing cards were retrieved",
