@@ -1,0 +1,70 @@
+import java.util.stream.Collectors
+
+plugins {
+    id 'base'
+    id 'java'
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.10.1'
+}
+
+def jacocoProjects = rootProject.subprojects.stream().filter {p -> p.plugins.hasPlugin('jacoco')}.collect(Collectors.toSet())
+
+check.dependsOn jacocoTestCoverageVerification
+
+jacocoTestCoverageVerification {
+    dependsOn 'jacocoRootReport'
+    violationRules {
+        rule {
+            limit {
+                counter = 'LINE'
+                value = 'COVEREDRATIO'
+                minimum = 1.0
+            }
+        }
+    }
+}
+
+task jacocoMerge(type: JacocoMerge) {
+    jacocoProjects.each { subproject ->
+        executionData subproject.tasks.withType(Test)
+    }
+    doFirst {
+        executionData = files(executionData.findAll { it.exists() })
+    }
+}
+
+task jacocoRootReport(type: JacocoReport, group: 'Coverage reports') {
+    description = 'Generates an aggregate report from all subprojects'
+
+    dependsOn jacocoProjects.test, jacocoMerge
+    additionalSourceDirs.from = files(jacocoProjects.sourceSets.main.allSource.srcDirs).filter { f -> f.exists() }
+    sourceDirectories.from = files(jacocoProjects.sourceSets.main.allSource.srcDirs).filter { f -> f.exists() }
+    classDirectories.from = files(jacocoProjects.sourceSets.main.output).filter { f -> f.exists() }.files.collect {
+        fileTree(
+                dir: it,
+                exclude: [
+                        '**/com/athena/junk/**/*',
+                        '**/com/athena/more/junk/**/*'
+                ]
+        )
+    }
+    executionData jacocoMerge.destinationFile
+    reports {
+        xml.enabled true
+        csv.enabled false
+        html.enabled true
+    }
+}
+
+coveralls {
+    sourceDirs = jacocoProjects.sourceSets.main.allSource.srcDirs.flatten()
+    jacocoReportPath = "${buildDir}/reports/jacoco/jacocoRootReport/jacocoRootReport.xml"
+}
+
+tasks.coveralls {
+    group = 'Coverage reports'
+    description = 'Uploads the aggregated coverage report to Coveralls'
+
+    dependsOn jacocoRootReport
+}
+//tasks.build.dependsOn(tasks.generateThingverseCoverageReport)

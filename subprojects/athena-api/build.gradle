@@ -39,6 +39,7 @@ dependencies {
     implementation 'com.amazonaws:aws-java-sdk-sts'
 
     implementation "org.postgresql:postgresql"
+    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
 
     implementation "io.springfox:springfox-swagger2"
     implementation "io.springfox:springfox-swagger-ui"
@@ -52,7 +53,7 @@ dependencies {
 
     implementation 'org.apache.derby:derby'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.testcontainers:postgresql:1.10.6'
+    testImplementation 'org.testcontainers:postgresql:1.14.3'
 }
 publishing {
     publications {

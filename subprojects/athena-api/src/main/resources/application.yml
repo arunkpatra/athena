@@ -17,7 +17,8 @@ spring:
     name: athena-api
   datasource:
     driver-class-name: 'com.amazon.redshift.jdbc42.Driver'
-    url: 'jdbc:redshift://examplecluster2.coibnwwmkdkh.ap-south-1.redshift.amazonaws.com:5439/dev'
+    url: ${DB_URL}
+#    url: 'jdbc:redshift://examplecluster2.coibnwwmkdkh.ap-south-1.redshift.amazonaws.com:5439/dev'
     username: ${DB_USER}
     password: ${DB_PASSWORD}
 #  datasource:

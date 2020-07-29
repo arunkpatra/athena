@@ -1,0 +1,7 @@
+server:
+  port: 0
+spring:
+  datasource:
+    driver-class-name: 'org.postgresql.Driver'
+    username: test
+    password: test
