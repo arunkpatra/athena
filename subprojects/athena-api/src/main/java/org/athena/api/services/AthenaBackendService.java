@@ -1,8 +1,6 @@
 package org.athena.api.services;
 
-import org.athena.api.model.MerchantSales;
-import org.athena.api.model.TopGrossingCard;
-import org.athena.api.model.TopSellingCardByQuantity;
+import org.athena.api.model.*;
 
 import java.util.List;
 
@@ -15,4 +13,11 @@ public interface AthenaBackendService {
     List<MerchantSales> getTopGrossingMerchants();
 
     List<MerchantSales> getWorstPerformingMerchants();
+
+    List<MerchantBreakage> getMerchantBreakages();
+
+    List<CardBreakage> getCardBreakages();
+
+    CardBreakageForecast getBreakageForecastForCard(String cardCode);
+
 }

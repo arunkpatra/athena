@@ -36,4 +36,62 @@ public class NativeQueries {
                     "     merchant\n" +
                     "where MV.merchant_code = merchant.merchant_code\n" +
                     "order by MV.gross_merchant_sale desc;";
+
+    public static final String BREAKAGE_BY_MERCHANT =
+            "select merchant_name, AMB.merchant_breakage, CURRENT_DATE as as_of_date\n" +
+                    "from (select merchant_code, sum(breakage) as merchant_breakage\n" +
+                    "      from (select P.merchant_code                   as merchant_code,\n" +
+                    "                   P.tx_value                        as purchase_value,\n" +
+                    "                   R.total_redeemed                  as redeemed_value,\n" +
+                    "                   (P.tx_value - R.total_redeemed) as breakage\n" +
+                    "            from (select gc_uuid, merchant_code, tx_value\n" +
+                    "                  from transaction\n" +
+                    "                  where tx_type = 'PURCHASE') P,                        \n" +
+                    "                 (select gc_uuid, sum(tx_value) as total_redeemed\n" +
+                    "                  from transaction\n" +
+                    "                  where tx_type = 'REDEMPTION'\n" +
+                    "                  group by gc_uuid) R,                                  \n" +
+                    "                 (select gc_uuid\n" +
+                    "                  from card\n" +
+                    "                  where gc_expiry_date < current_date\n" +
+                    "                    and (CURRENT_DATE::date - gc_expiry_date) < 365) E, \n" +
+                    "                 card                                                   \n" +
+                    "            where P.gc_uuid = E.gc_uuid\n" +
+                    "              and E.gc_uuid = card.gc_uuid\n" +
+                    "              and E.gc_uuid = R.gc_uuid) MB\n" +
+                    "      group by merchant_code) AMB,\n" +
+                    "     merchant\n" +
+                    "where AMB.merchant_code = merchant.merchant_code\n" +
+                    "order by AMB.merchant_breakage desc;";
+
+    public static final String BREAKAGE_BY_CARD =
+            "select CC.gc_name, CC.gc_type_code card_type_code,\n" +
+                    "       BB.total_purchase_value as ytd_purchase_value,\n" +
+                    "       BB.total_breakage_value as ytd_breakage, (BB.total_breakage_value / BB.total_purchase_value)* 100 as breakage_rate,\n" +
+                    "       CURRENT_DATE as as_of_date\n" +
+                    "from (select ACB.card_type_code, sum(ACB.purchase_value) as total_purchase_value, sum(ACB.breakage) as total_breakage_value\n" +
+                    "      from (select card.gc_uuid,\n" +
+                    "                   card.gc_type_code                 as card_type_code,\n" +
+                    "                   P.tx_value                        as purchase_value,\n" +
+                    "                   R.total_redeemed                  as redeemed_value,\n" +
+                    "                   (P.tx_value - R.total_redeemed) as breakage\n" +
+                    "            from (select gc_uuid, tx_value from transaction where tx_type = 'PURCHASE') P, \n" +
+                    "                 (select gc_uuid, sum(tx_value) as total_redeemed\n" +
+                    "                  from transaction\n" +
+                    "                  where tx_type = 'REDEMPTION'\n" +
+                    "                  group by gc_uuid) R, \n" +
+                    "                 (select gc_uuid\n" +
+                    "                  from card\n" +
+                    "                  where gc_expiry_date < current_date\n" +
+                    "                    and (CURRENT_DATE::date - gc_expiry_date) < 365) E, \n" +
+                    "                 card \n" +
+                    "            where P.gc_uuid = E.gc_uuid\n" +
+                    "              and E.gc_uuid = card.gc_uuid\n" +
+                    "              and E.gc_uuid = R.gc_uuid) ACB, \n" +
+                    "           card_type C \n" +
+                    "      where C.gc_type_code = ACB.card_type_code\n" +
+                    "      group by ACB.card_type_code) BB, \n" +
+                    "     card_type CC \n" +
+                    "where BB.card_type_code = CC.gc_type_code\n" +
+                    "order by BB.total_breakage_value desc;";
 }

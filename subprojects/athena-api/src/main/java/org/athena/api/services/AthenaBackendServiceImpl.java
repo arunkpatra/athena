@@ -1,8 +1,6 @@
 package org.athena.api.services;
 
-import org.athena.api.model.MerchantSales;
-import org.athena.api.model.TopGrossingCard;
-import org.athena.api.model.TopSellingCardByQuantity;
+import org.athena.api.model.*;
 import org.athena.api.queries.NativeQueries;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -44,5 +42,24 @@ public class AthenaBackendServiceImpl implements AthenaBackendService{
     @Override
     public List<MerchantSales> getWorstPerformingMerchants() {
         throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public List<MerchantBreakage> getMerchantBreakages() {
+        return jdbcTemplate.query(NativeQueries.BREAKAGE_BY_MERCHANT,
+                (rs, rowNum) -> new MerchantBreakage(rs.getString(1).trim(), rs.getDouble(2))
+        );
+    }
+
+    @Override
+    public List<CardBreakage> getCardBreakages() {
+        return jdbcTemplate.query(NativeQueries.BREAKAGE_BY_CARD,
+                (rs, rowNum) -> new CardBreakage(rs.getString(1).trim(), rs.getDouble(4))
+        );
+    }
+
+    @Override
+    public CardBreakageForecast getBreakageForecastForCard(String cardCode) {
+        return new CardBreakageForecast("G-0001", "Happy Student Gift Card", 125.99);
     }
 }
