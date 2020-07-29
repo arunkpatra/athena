@@ -43,8 +43,8 @@ task jacocoRootReport(type: JacocoReport, group: 'Coverage reports') {
         fileTree(
                 dir: it,
                 exclude: [
-                        '**/com/athena/junk/**/*',
-                        '**/com/athena/more/junk/**/*'
+                        '**/org/athena/junk/**/*',
+                        '**/org/athena/api/queries/**/*'
                 ]
         )
     }

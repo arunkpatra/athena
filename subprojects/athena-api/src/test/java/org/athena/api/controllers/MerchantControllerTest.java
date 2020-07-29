@@ -2,11 +2,12 @@ package org.athena.api.controllers;
 
 import org.athena.api.AbstractTest;
 import org.athena.api.model.ErrorResponse;
-import org.athena.api.model.TopGrossingCardsResponse;
 import org.athena.api.model.TopGrossingMerchantsResponse;
-import org.athena.api.model.TopSellingCardsByQuantityResponse;
+import org.athena.api.queries.NativeQueries;
 import org.junit.Assert;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
@@ -15,8 +16,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 public class MerchantControllerTest extends AbstractTest {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(MerchantControllerTest.class);
+
     @Test
     public void getTopGrossingMerchantsTest() throws Exception {
+        LOGGER.info("Query: " + NativeQueries.TOP_GROSSING_MERCHANTS);
         TopGrossingMerchantsResponse response = mockHttpExchange(
                 get("/api/merchant/topgrossing"),
                 status().isOk(),
