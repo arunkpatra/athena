@@ -62,7 +62,7 @@ The APIs developed as part of the programming challenge:
 
 ---
 
-<img src="assets/athena-swagger-ui.png" width="350px" alt="Athena Swagger UI" />
+<img src="assets/athena-swagger-ui.png" width="1280px" alt="Athena Swagger UI" />
 
 ## Mantra for Success
 _Thing big, start small..._
