@@ -29,6 +29,13 @@ dependencies {
     constraints {
         api project(":athena-api")
 
+        api 'com.amazon.redshift:redshift-jdbc42-no-awssdk:1.2.45.1069'
+        api 'com.amazonaws:aws-java-sdk-core:1.11.118'
+        api 'com.amazonaws:aws-java-sdk-redshift:1.11.118'
+        api 'com.amazonaws:aws-java-sdk-sts:1.11.118'
+
+        api "org.postgresql:postgresql:42.2.5"
+
         api "javax.annotation:javax.annotation-api:1.3.2"
         api "commons-lang:commons-lang:${commonsLangVersion}"
 

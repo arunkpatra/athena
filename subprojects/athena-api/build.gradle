@@ -33,6 +33,13 @@ springBoot  {
 dependencies {
     api enforcedPlatform(project(':athena-bom'))
 
+    implementation "com.amazon.redshift:redshift-jdbc42-no-awssdk"
+    implementation 'com.amazonaws:aws-java-sdk-core'
+    implementation 'com.amazonaws:aws-java-sdk-redshift'
+    implementation 'com.amazonaws:aws-java-sdk-sts'
+
+    implementation "org.postgresql:postgresql"
+
     implementation "io.springfox:springfox-swagger2"
     implementation "io.springfox:springfox-swagger-ui"
     implementation 'com.github.ben-manes.caffeine:caffeine'
@@ -45,7 +52,7 @@ dependencies {
 
     implementation 'org.apache.derby:derby'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.springframework.security:spring-security-test'
+    testImplementation 'org.testcontainers:postgresql:1.10.6'
 }
 publishing {
     publications {
