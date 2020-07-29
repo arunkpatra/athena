@@ -1,0 +1,84 @@
+plugins {
+    id 'java-platform'
+}
+javaPlatform {
+    allowDependencies()
+}
+ext {
+    set('gatlingVersion', "3.3.1")
+    set('springBootAdminVersion', "2.2.3")
+    set('kubernetesClientVersion', "6.0.1")
+    set('gatlingGradlePluginVersion', "3.0.2")
+
+    set('commonsLangVersion', "2.6")
+    set('consulApiVersion', "1.4.5")
+    set('chaosMonkeySpringBootVersion', "2.1.1")
+    set('dropWizardMetricsCoreVersion', "4.1.7")
+    set('ioJsonwebtokenJjwtVersion', "0.9.1")
+    set('nettyHandlerVersion', "4.1.49.Final")
+    set('resilience4jVersion', "1.4.0")
+    set('vavrJacksonVersion', "0.10.0")
+
+    set('springfoxSwaggerVersion', "2.9.2")
+    set('springBootVersion', "2.3.0.RELEASE")
+    set('springCloudVersion', "Hoxton.SR4")
+}
+dependencies {
+    api platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+    api platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+    constraints {
+        api project(":athena-api")
+
+        api "javax.annotation:javax.annotation-api:1.3.2"
+        api "commons-lang:commons-lang:${commonsLangVersion}"
+
+        api "de.codecentric:spring-boot-admin-starter-server:${springBootAdminVersion}"
+        api "de.codecentric:spring-boot-admin-starter-client:${springBootAdminVersion}"
+
+        api "io.github.resilience4j:resilience4j-spring-boot2:${resilience4jVersion}"
+        api "io.github.resilience4j:resilience4j-all:${resilience4jVersion}"
+        api "io.github.resilience4j:resilience4j-reactor:${resilience4jVersion}"
+        api "de.codecentric:chaos-monkey-spring-boot:${chaosMonkeySpringBootVersion}"
+        api "io.vavr:vavr-jackson:${vavrJacksonVersion}"
+
+        api "io.dropwizard.metrics:metrics-core:${dropWizardMetricsCoreVersion}"
+        api "io.netty:netty-handler:${nettyHandlerVersion}"
+        api "io.springfox:springfox-swagger2:${springfoxSwaggerVersion}"
+        api "io.springfox:springfox-swagger-ui:${springfoxSwaggerVersion}"
+        api "io.jsonwebtoken:jjwt:${ioJsonwebtokenJjwtVersion}"
+        api "io.kubernetes:client-java:${kubernetesClientVersion}"
+
+
+        api "org.slf4j:slf4j-api:1.7.30"
+        api 'junit:junit:4.12'
+        api "commons-io:commons-io:2.4"
+        api "io.gatling.highcharts:gatling-charts-highcharts:${gatlingVersion}"
+        api "gradle.plugin.com.github.lkishalmi.gatling:gradle-gatling-plugin:${gatlingGradlePluginVersion}"
+
+    }
+}
+publishing {
+    publications {
+        almamaterBom(MavenPublication) {
+            artifactId = "athena-bom"
+            from components.javaPlatform
+            pom {
+                name = 'Athena Platform'
+                description = 'Athena Platform Parent POM'
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'arunkpatra'
+                        name = 'Arun Patra'
+                        email = 'arunkpatra@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}

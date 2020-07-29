@@ -6,10 +6,10 @@ buildCache {
 }
 
 rootProject.name = 'athena'
-include 'athena-bom'
-include 'athena-logging'
-include 'athena-common'
+
 include 'athena-api'
-include 'athena-admin'
+include 'athena-bom'
 
 rootProject.children.forEach { p -> p.projectDir = file("subprojects/$p.name")}
+
+
