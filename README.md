@@ -1,5 +1,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![Build Status](https://github.com/arunkpatra/athena/workflows/build/badge.svg)
+[![Build Status](https://travis-ci.org/arunkpatra/athena.svg?branch=master)](https://travis-ci.org/arunkpatra/athena)
+[![Coverage Status](https://coveralls.io/repos/github/arunkpatra/athena/badge.svg?branch=master)](https://coveralls.io/github/arunkpatra/athena?branch=master)
 [![Issues](https://img.shields.io/github/issues/arunkpatra/athena.svg)](https://github.com/arunkpatra/athena/issues)
 [![Join the chat at https://gitter.im/athena-chat/community](https://badges.gitter.im/athena-chat/community.svg)](https://gitter.im/athena-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
