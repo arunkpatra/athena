@@ -14,17 +14,17 @@ as much as possible. That **increases the chances of uplift**, acquire new custo
 the business to **keep the revenue from the gift card sales** at the first place (technically speaking in accounting terms, 
 the GC sale revenue is nothing more than a liability on the books till the consumer actually redeems the gift card!)
 
-## The problem: What business really wants?
+## The problem: What business wants
 
 1. **Minimize escheatment** - Its just a risk and doesn't help my business. Solve the breakage problem to start with please.
 2. **Maximize uplift** - That's a major success criteria for my business.
 
-## The expectation: What business needs to meet stated goals?
+## The expectation: What business needs to meet stated goals
 
 1. Give me tools to predict breakage values each quarter by card type. I need this for planning and to protect my Gift card business better. 
 2. Give me tools to notify customers and hence prevent breakage, thereby creating uplift hopefully. This is a key success factor for Athena.
 
-## The approach: How do we meet business expectations?
+## The approach: How do we meet business expectations
 
 1. Use historical data around breakage and/or train a model to predict breakage numbers. Find out when redemption
 chances become remote. 
@@ -37,7 +37,7 @@ factor is a function of multiple parameters that might include customer profile,
 3. Build a solution that scales with data volumes, is dynamic enough to cater to dynamic escheatment regulation and enables
 the smart insights mentioned above.
  
-## The architecture: How does the blueprint of the solution look like?
+## The architecture: How does the blueprint of the solution look like
 See [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## Key Usecases: Where the rubber meets the road
@@ -50,10 +50,10 @@ escheatment value for my business, it would be great.
 customers so that I can maximize uplift. It's awesome to see a predicted uplift value in response to this action that
 was taken.
 
-## The design: How do I engineer the solution?
+## The design: How do I engineer the solution
 See [ARCHITECTURE.md](ARCHITECTURE.md)
 
-## The engineering: Deliver great quality, fast, with every release.
+## The engineering: Deliver great quality, fast, with every release
 See [DEVELOPMENT.md](DEVELOPMENT.md)
 
 ## Mantra for Success
