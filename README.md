@@ -12,7 +12,7 @@ US shoppers spent around **$40 Billion** last year on Gift Cards. Around **$1.2 
 businesses selling these gift cards. Interestingly, as one is aware, its best to ensure that customers redeem gift cards 
 as much as possible. That **increases the chances of uplift**, acquire new customers, promote new business and actually allow
 the business to **keep the revenue from the gift card sales** at the first place (technically speaking in accounting terms, 
-the GC sale revenue is nothing more than a liability on the books till the consumer actually redeems the gift card!)
+the GC sale revenue is nothing more than a liability on the books till the consumer actually redeems the gift card!). 
 
 ## The problem: What business wants
 
