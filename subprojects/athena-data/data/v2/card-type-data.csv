@@ -1,0 +1,51 @@
+gc-type-code,gc-name,gc-type-code,gc-merchant-code,gc-validity-days,gc-category,gc-reloadable,gc-funds-expire
+G-0001,Happy Student Gift Card,open-close-loop,M-0001,180,store-gift-card,FALSE,FALSE
+G-0002,Adidas Gift Card,close-loop,M-0002,180,clothing-gift-cards,FALSE,FALSE
+G-0003,Staples Gift Card,close-loop,M-0003,180,store-gift-card,FALSE,FALSE
+G-0004,Starbucks Gift Card,close-loop,M-0004,180,food-and-beverage-gift-card-designs,FALSE,FALSE
+G-0005,Subway Gift Card,close-loop,M-0005,180,food-and-beverage-gift-card-designs,FALSE,FALSE
+G-0006,Panera Bread Gift Card,close-loop,M-0006,180,food-and-beverage-gift-card-designs,FALSE,FALSE
+G-0007,Wayfair Gift Card,close-loop,M-0007,180,home-improvement-gift-cards,FALSE,FALSE
+G-0008,HM,close-loop,M-0008,180,clothing-gift-cards,FALSE,FALSE
+G-0009,Wolfermans Gift Card,open-close-loop,M-0009,180,specialty-retailer-gift-cards,FALSE,FALSE
+G-0010,The Pop Corn Factory Gift Card,open-close-loop,M-0010,180,specialty-retailer-gift-cards,FALSE,FALSE
+G-0011,Sunglass Hut Gift Card,close-loop,M-0011,180,specialty-retailer-gift-cards,FALSE,FALSE
+G-0012,Unleashed Gift Card,close-loop,M-0012,180,specialty-retailer-gift-cards,FALSE,FALSE
+G-0013,The Container Store Gift Card,close-loop,M-0013,180,specialty-retailer-gift-cards,FALSE,FALSE
+G-0014,Michaels Gift Card,close-loop,M-0014,180,specialty-retailer-gift-cards,FALSE,FALSE
+G-0015,Boxlunch Gift Card,close-loop,M-0015,180,clothing-gift-cards,FALSE,FALSE
+G-0016,Stitch Fix Gift Card,close-loop,M-0016,180,clothing-gift-cards,FALSE,FALSE
+G-0017,Old Navy GiftCard,open-close-loop,M-0017,180,clothing-gift-cards,FALSE,FALSE
+G-0018,Lids Gift Card,close-loop,M-0018,180,clothing-gift-cards,FALSE,FALSE
+G-0019,Pacsun Gift card,close-loop,M-0019,180,clothing-gift-cards,FALSE,FALSE
+G-0020,Holister Gift Card,close-loop,M-0020,180,clothing-gift-cards,FALSE,FALSE
+G-0021,GAP Gift Card,close-loop,M-0017,180,clothing-gift-cards,FALSE,FALSE
+G-0022,Guess Gift Card,close-loop,M-0022,180,clothing-gift-cards,FALSE,FALSE
+G-0023,GAP options Gift Card,open-close-loop,M-0017,180,clothing-gift-cards,FALSE,FALSE
+G-0024,DSW Designer Shoes Warehouse Gift Card,close-loop,M-0024,180,clothing-gift-cards,FALSE,FALSE
+G-0025,Baby GAP Gift Card,open-close-loop,M-0017,180,clothing-gift-cards,FALSE,FALSE
+G-0026,Finish Line Gift Card,close-loop,M-0026,180,clothing-gift-cards,FALSE,FALSE
+G-0027,eBay Gift Card,close-loop,M-0027,180,home-improvement-gift-cards,FALSE,FALSE
+G-0028,Kohls Gift Card,close-loop,M-0028,180,department-store-gift-cards,FALSE,FALSE
+G-0029,Macys Gift Card,close-loop,M-0029,180,department-store-gift-cards,FALSE,FALSE
+G-0030,Saks Fifth Avenue Gift Card,close-loop,M-0030,180,clothing-gift-cards,FALSE,FALSE
+G-0031,Belk Gift Card,close-loop,M-0031,180,department-store-gift-cards,FALSE,FALSE
+G-0032,Bass Pro Shops Gift Card,close-loop,M-0032,180,clothing-gift-cards,FALSE,FALSE
+G-0033,Bed Bath and Beyond Gift Card,close-loop,M-0033,180,home-improvement-gift-cards,FALSE,FALSE
+G-0034,Music Notes Visa Gift Card,open-loop,M-0001,180,movies-and-entertainment-gift-cards,FALSE,FALSE
+G-0035,Paparazzi Visa Gift Card,open-loop,M-0001,180,movies-and-entertainment-gift-cards,FALSE,FALSE
+G-0036,Musical Manuscript Visa Gift Card,open-loop,M-0001,180,movies-and-entertainment-gift-cards,FALSE,FALSE
+G-0037,Steering Wheel Visa Gift Card,open-loop,M-0001,180,automotive-gift-cards,FALSE,FALSE
+G-0038,Green Fuel Visa Gift Card,open-loop,M-0001,180,automotive-gift-cards,FALSE,FALSE
+G-0039,Cool Motor Bike Visa Gift Card,open-loop,M-0001,180,automotive-gift-cards,FALSE,FALSE
+G-0040,Blue Car Visa Gift Card,open-loop,M-0001,180,automotive-gift-cards,FALSE,FALSE
+G-0041,Wrench Visa Gift Card,open-loop,M-0001,180,automotive-gift-cards,FALSE,FALSE
+G-0042,Checkered Flag Visa Gift Card,open-loop,M-0001,180,automotive-gift-cards,FALSE,FALSE
+G-0043,USB Visa Gift Card,open-loop,M-0001,180,gift-cards-for-electronics,FALSE,FALSE
+G-0044,Digital Global Visa Gift Cad,open-loop,M-0001,180,gift-cards-for-electronics,FALSE,FALSE
+G-0045,Computer Chip Visa Gift Card,open-loop,M-0001,180,gift-cards-for-electronics,FALSE,FALSE
+G-0046,Microsoft Xbox Game Pass Ultimate Gift Card,close-loop,M-0046,180,automotive-gift-cards,FALSE,FALSE
+G-0047,Audible Gift Card,close-loop,M-0047,180,automotive-gift-cards,FALSE,FALSE
+G-0048,Karma Koin Gift Card,close-loop,M-0048,180,automotive-gift-cards,FALSE,FALSE
+G-0049,ThinkGeek Gift Card ,close-loop,M-0049,180,automotive-gift-cards,FALSE,FALSE
+G-0050,App Store and iTunes,close-loop,M-0050,180,music-gift-cards,FALSE,FALSE

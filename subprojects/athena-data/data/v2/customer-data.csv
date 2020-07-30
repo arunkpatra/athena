@@ -1,0 +1,7 @@
+cust_id,cust_name,cust_city,cust_zip_code,cust_dob,cust_registration_date,cust_email,cust_phone
+76809bcc-0e1f-4b44-8119-8a795b103678,John Doe,Houghton,78240,1978-06-21,2015-01-01,john.doe@email.com,210-917-2260
+d31bd3d9-8655-4081-81b5-30e3fc937f0f,Jane Doe,Fort Walton Beach,78240,1978-06-21,2015-01-01,john.doe@email.com,210-917-2260
+6a684bf5-ef9c-4792-be1f-c1748bdc2b52,Max Smith,Mitchell,78240,1978-06-21,2015-01-01,john.doe@email.com,210-917-2260
+adc7218c-9ef3-4c35-bedf-43f269bc3438,James Bond,Vinita,78240,1978-06-21,2015-01-01,john.doe@email.com,210-917-2260
+6be054b9-4199-48f2-9fee-fcb9ce5b070c,Max Planck,Painesville,78240,1978-06-21,2015-01-01,john.doe@email.com,210-917-2260
+87dd97b1-ba79-41c2-a053-ca94c8e4446f,Nicola Tesla,Tempe,78240,1978-06-21,2015-01-01,john.doe@email.com,210-917-2260
