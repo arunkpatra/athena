@@ -13,7 +13,7 @@ create table card_type
     gc_business_model varchar(32),
     gc_merchant_code  varchar(16),
     gc_validity_days  integer,
-    gc_category       varchar(32),
+    gc_category       varchar(64),
     gc_reloadable     boolean,
     gc_funds_expire   boolean
 );
