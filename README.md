@@ -29,7 +29,7 @@ the GC sale revenue is nothing more than a liability on the books till the consu
 1. Use historical data around breakage and/or train a model to predict breakage numbers. Find out when redemption
 chances become remote. 
 2. Try to formulate a 'smart' strategy to trigger notifications to the customer so that chances of actual redemption
-are highest. A 'dumb' strategy would be to just trigger notifications a week or two weeks prior to expiry. The smartness
+improve. A 'dumb' strategy would be to just trigger notifications a week or two weeks prior to expiry. The smartness
 factor is a function of multiple parameters that might include customer profile, situational aspects, in store/online
  offers etc. We must try everything possible to not only just prevent breakage, but create uplift. Historically,
  65% customers have a likelihood of spending 38% more than the gift card value. Tapping this opportunity should be a key success factor for Athena.
