@@ -10,9 +10,9 @@ If you want to build **athena** from source , follow the steps mentioned here.
 - Java: JDK 11
 - Gradle: Bundled via wrapper, but locally installed Gradle v1.65 helps.
 
-> You would need credentials of the Amazon Redshift cluster. For running tests locally, you won't need Redshift since 
-> local integration tests use a local PostgreSQL DB. You don't need to install PostgreSQL locally, just leave your
-> Docker daemon running (the tests will automatically do the rest)
+> To run the athena REST API app, you would need credentials of the Amazon Redshift cluster. However, for running the tests locally, you won't need Redshift since 
+> local integration tests use a local PostgreSQL DB instead of a full blown Amazon Redshift - the same queries work on both PostgreSQL and Amazon Redshift equally well with very few minor exceptions(e.g. `distkey` and `sortkey` which are Redshift specific). Furthermore, you don't need to install PostgreSQL locally yourself, just leave your
+> Docker daemon running and the test automatio will automatically pull in PostgreSQL during test execution.
 
 ## Build and run tests
 - The integration tests would require your Docker daemon to be running. (Install Docker Desktop locally and start it)
