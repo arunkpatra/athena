@@ -14,17 +14,17 @@ as much as possible. That **increases the chances of uplift**, acquire new custo
 the business to **keep the revenue from the gift card sales** at the first place (technically speaking in accounting terms, 
 the GC sale revenue is nothing more than a liability on the books till the consumer actually redeems the gift card!)
 
-## The problem: What business wants
+## Problem Statement: What business wants
 
 1. **Minimize escheatment** - Its just a risk and doesn't help my business. Solve the breakage problem to start with.
 2. **Maximize uplift** - That's a major success criteria for my business.
 
-## The expectation: What business needs to meet stated goals
+## Business expectation: What business needs to meet stated goals
 
 1. Tools to predict breakage values each quarter by card type. I need this for planning and to protect my Gift card business better. 
 2. Tools to notify customers and hence prevent breakage, thereby creating uplift hopefully. This is a key success factor for Athena.
 
-## The approach: How do we meet business expectations
+## Solution Approach: How do we meet business expectations
 
 1. Use historical data around breakage and/or train a model to predict breakage numbers. Find out when redemption
 chances become remote. 
@@ -46,13 +46,13 @@ escheatment value for my business, it would be great.
 customers so that I can maximize uplift. It's awesome to see a predicted uplift value in response to this action that
 was taken.
 
-## The architecture: How does the blueprint of the solution look like
+## Solution Architecture: How does the blueprint of the solution look like
 See [ARCHITECTURE.md](ARCHITECTURE.md)
 
-## The design: How do I engineer the solution
+## Design: How do I engineer the solution
 See [ARCHITECTURE.md](ARCHITECTURE.md)
 
-## The engineering: Deliver great quality, fast, with every release
+## Development Tips
 See [DEVELOPMENT.md](DEVELOPMENT.md)
 
 ## Screenshot: The proof is in the pudding
