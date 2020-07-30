@@ -47,10 +47,7 @@ customers so that I can maximize uplift. It's awesome to see a predicted uplift 
 was taken.
 
 ## Solution Architecture: How does the blueprint of the solution look like
-See [ARCHITECTURE.md](ARCHITECTURE.md)
-
-## Design: How do I engineer the solution
-See [ARCHITECTURE.md](ARCHITECTURE.md)
+See [ARCHITECTURE.md](ARCHITECTURE.md) for a detailed discussion.
 
 ## Development Tips
 See [DEVELOPMENT.md](DEVELOPMENT.md)
