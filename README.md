@@ -16,13 +16,13 @@ the GC sale revenue is nothing more than a liability on the books till the consu
 
 ## The problem: What business wants
 
-1. **Minimize escheatment** - Its just a risk and doesn't help my business. Solve the breakage problem to start with please.
+1. **Minimize escheatment** - Its just a risk and doesn't help my business. Solve the breakage problem to start with.
 2. **Maximize uplift** - That's a major success criteria for my business.
 
 ## The expectation: What business needs to meet stated goals
 
-1. Give me tools to predict breakage values each quarter by card type. I need this for planning and to protect my Gift card business better. 
-2. Give me tools to notify customers and hence prevent breakage, thereby creating uplift hopefully. This is a key success factor for Athena.
+1. Tools to predict breakage values each quarter by card type. I need this for planning and to protect my Gift card business better. 
+2. Tools to notify customers and hence prevent breakage, thereby creating uplift hopefully. This is a key success factor for Athena.
 
 ## The approach: How do we meet business expectations
 
@@ -32,13 +32,9 @@ chances become remote.
 are highest. A 'dumb' strategy would be to just trigger notifications a week or two weeks prior to expiry. The smartness
 factor is a function of multiple parameters that might include customer profile, situational aspects, in store/online
  offers etc. We must try everything possible to not only just prevent breakage, but create uplift. Historically,
- 65% customers have a likelihood of spending 38% more than the gift card value. Tap this opportunity and I'll call Athena
- successful.
+ 65% customers have a likelihood of spending 38% more than the gift card value. Tapping this opportunity should be a key success factor for Athena.
 3. Build a solution that scales with data volumes, is dynamic enough to cater to dynamic escheatment regulation and enables
 the smart insights mentioned above.
- 
-## The architecture: How does the blueprint of the solution look like
-See [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## Key Usecases: Where the rubber meets the road
 
@@ -49,6 +45,9 @@ escheatment value for my business, it would be great.
 2. As a gift card issuer, I want the system to tell me the best possible time when notifications should be generated to
 customers so that I can maximize uplift. It's awesome to see a predicted uplift value in response to this action that
 was taken.
+
+## The architecture: How does the blueprint of the solution look like
+See [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## The design: How do I engineer the solution
 See [ARCHITECTURE.md](ARCHITECTURE.md)
