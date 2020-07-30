@@ -50,7 +50,7 @@ test {
 gitProperties {
     failOnNoGitDirectory = false
 }
-springBoot  {
+springBoot {
     buildInfo()
 }
 
@@ -100,7 +100,7 @@ publishing {
     }
 }
 
-String getDockerRegistryUrl()  {
+String getDockerRegistryUrl() {
     String url = System.getenv('DOCKER_REGISTRY')
     return null != url ? url : project.properties.getOrDefault('docker.registry', "")
 }
@@ -127,11 +127,11 @@ task checkIfDockerIsRunning(type: DockerVersion) {
 
 task buildDockerImage(type: DockerBuildImage) {
     dependsOn checkIfDockerIsRunning, bootJar
-    onlyIf { !project.hasProperty('docker.not.running') && project.hasProperty('docker.registry')}
+    onlyIf { !project.hasProperty('docker.not.running') && project.hasProperty('docker.registry') }
     inputDir.set(file('.'))
     images.addAll("${project.name}:${project.version}",
             "${getDockerRegistryUrl()}/${project.name}:${project.version}")
-    onError {  e -> println("Can't build image. Error is: ${e.message}")}
+    onError { e -> println("Can't build image. Error is: ${e.message}") }
 }
 
 task pushDockerImage(type: DockerPushImage) {

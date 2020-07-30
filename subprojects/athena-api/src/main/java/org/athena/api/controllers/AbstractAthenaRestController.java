@@ -44,6 +44,6 @@ public abstract class AbstractAthenaRestController {
         String message = "An error occurred";
         String errorDetail = "Error: " + e.getMessage();
         LOGGER.error("Error occurred: description={}, detail={}", message, errorDetail);
-        return new ErrorResponse( message, errorDetail);
+        return new ErrorResponse(message, errorDetail);
     }
 }

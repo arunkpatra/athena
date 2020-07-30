@@ -25,7 +25,6 @@
 package org.athena.api.controllers;
 
 import org.athena.api.AbstractTest;
-import org.athena.api.model.ErrorResponse;
 import org.athena.api.model.TopGrossingCardsResponse;
 import org.athena.api.model.TopSellingCardsByQuantityResponse;
 import org.athena.api.queries.NativeQueries;
@@ -35,6 +34,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
+
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 

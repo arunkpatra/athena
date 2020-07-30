@@ -35,5 +35,5 @@ include 'athena-api'
 include 'athena-bom'
 include 'athena-coverage-reporting'
 
-rootProject.children.forEach { p -> p.projectDir = file("subprojects/$p.name")}
+rootProject.children.forEach { p -> p.projectDir = file("subprojects/$p.name") }
 

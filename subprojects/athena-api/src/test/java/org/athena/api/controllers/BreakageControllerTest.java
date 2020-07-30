@@ -25,8 +25,9 @@
 package org.athena.api.controllers;
 
 import org.athena.api.AbstractTest;
-import org.athena.api.model.*;
-import org.athena.api.queries.NativeQueries;
+import org.athena.api.model.CardBreakageForecastResponse;
+import org.athena.api.model.CardBreakageResponse;
+import org.athena.api.model.MerchantBreakageResponse;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;

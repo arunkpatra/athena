@@ -54,13 +54,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles({"intg-test"})
 public abstract class AbstractTest {
     private static final Logger LOGGER = LoggerFactory.getLogger(org.athena.api.AbstractTest.class);
+    @ClassRule
+    public static PostgreSQLContainer postgreSQLContainer = AthenaTestPostgresqlContainer.getInstance();
     protected static String SUCCESS_CHAR = "✓ ";
     protected static String FAILURE_CHAR = "✕ ";
     protected static String RUNNING_CHAR = "\uD83C\uDFC3 ";
-
-    @ClassRule
-    public static PostgreSQLContainer postgreSQLContainer = AthenaTestPostgresqlContainer.getInstance();
-
     @Autowired
     protected MockMvc mockMvc;
     @Autowired
@@ -76,11 +74,11 @@ public abstract class AbstractTest {
 
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     protected <T, M> T mockHttpExchange(
-                                                     MockHttpServletRequestBuilder requestBuilder,
-                                                     ResultMatcher resultMatcher,
-                                                     Optional<Object> content,
-                                                     Optional<String> expectedErrorMessage,
-                                                     Class<T> type) throws Exception {
+            MockHttpServletRequestBuilder requestBuilder,
+            ResultMatcher resultMatcher,
+            Optional<Object> content,
+            Optional<String> expectedErrorMessage,
+            Class<T> type) throws Exception {
 
         content.ifPresent(c -> requestBuilder.content(asJsonString(c)));
         MvcResult mvcResult = mockMvc.perform(requestBuilder)
@@ -89,7 +87,7 @@ public abstract class AbstractTest {
                 .andReturn();
         T response = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), type);
         expectedErrorMessage.ifPresent(m -> {
-            if (response instanceof ErrorResponse  ) {
+            if (response instanceof ErrorResponse) {
                 Assert.assertEquals(FAILURE_CHAR + "Did not get expected error description",
                         m, ((ErrorResponse) response).getErrorDescription());
                 LOGGER.info(SUCCESS_CHAR + "Receive expected error message: {}", expectedErrorMessage.get());

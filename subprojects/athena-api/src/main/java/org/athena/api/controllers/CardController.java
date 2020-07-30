@@ -23,7 +23,10 @@
  */
 package org.athena.api.controllers;
 
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.athena.api.exceptions.AthenaException;
 import org.athena.api.model.ErrorResponse;
 import org.athena.api.model.TopGrossingCardsResponse;

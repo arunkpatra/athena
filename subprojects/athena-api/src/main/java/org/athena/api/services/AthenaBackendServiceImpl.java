@@ -37,7 +37,7 @@ import static org.athena.api.queries.NativeQueries.*;
  *
  * @author Arun Patra
  */
-public class AthenaBackendServiceImpl implements AthenaBackendService{
+public class AthenaBackendServiceImpl implements AthenaBackendService {
 
     private final JdbcTemplate jdbcTemplate;
 
@@ -88,9 +88,9 @@ public class AthenaBackendServiceImpl implements AthenaBackendService{
     public CardBreakageForecast getBreakageForecastForCard(String cardCode) {
         // For given card what was breakages in prior years? Calculate average
         List<YearlyBreakageRate> yearlyBreakageRates =
-                jdbcTemplate.query(HISTORICAL_BREAKAGE_RATE_BY_CARD,new Object[] { cardCode },
-                (rs, rowNum) -> new YearlyBreakageRate(rs.getString(2).trim(), rs.getFloat(5), rs.getInt(6))
-        );
+                jdbcTemplate.query(HISTORICAL_BREAKAGE_RATE_BY_CARD, new Object[]{cardCode},
+                        (rs, rowNum) -> new YearlyBreakageRate(rs.getString(2).trim(), rs.getFloat(5), rs.getInt(6))
+                );
 
         OptionalDouble optionalAverageRate = yearlyBreakageRates
                 .stream()
@@ -101,7 +101,7 @@ public class AthenaBackendServiceImpl implements AthenaBackendService{
         double averageYearlyBreakageRate = optionalAverageRate.isPresent() ? optionalAverageRate.getAsDouble() : 0;
 
         // What is the total sales volumes in this year for this card?
-        List<CardSalesThisYear> cardSalesThisYear = jdbcTemplate.query(SALES_THIS_YEAR_BY_CARD,new Object[] { cardCode },
+        List<CardSalesThisYear> cardSalesThisYear = jdbcTemplate.query(SALES_THIS_YEAR_BY_CARD, new Object[]{cardCode},
                 (rs, rowNum) -> new CardSalesThisYear(rs.getString(2).trim(), rs.getDouble(3),
                         rs.getInt(4))
         );
@@ -109,6 +109,6 @@ public class AthenaBackendServiceImpl implements AthenaBackendService{
                 .map(CardSalesThisYear::getTotalSales).reduce(0.0, Double::sum);
 
         // extrapolate
-        return new CardBreakageForecast(cardCode,  Math.round(averageYearlyBreakageRate * totalSalesThisYearForCard * 100.0) / 100.0);
+        return new CardBreakageForecast(cardCode, Math.round(averageYearlyBreakageRate * totalSalesThisYearForCard * 100.0) / 100.0);
     }
 }

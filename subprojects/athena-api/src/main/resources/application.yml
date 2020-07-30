@@ -12,28 +12,14 @@ server:
   port: 8080
 
 spring:
-#  jackson.serialization.indent_output: true
   application:
     name: athena-api
   datasource:
     driver-class-name: 'com.amazon.redshift.jdbc42.Driver'
     url: ${DB_URL}
-#    url: 'jdbc:redshift://examplecluster2.coibnwwmkdkh.ap-south-1.redshift.amazonaws.com:5439/dev'
+    #    url: 'jdbc:redshift://examplecluster2.coibnwwmkdkh.ap-south-1.redshift.amazonaws.com:5439/dev'
     username: ${DB_USER}
     password: ${DB_PASSWORD}
-#  datasource:
-#    continue-on-error: false
-#    data: classpath:sql/data-derby.sql
-#    hikari:
-#      connection-test-query: SELECT 1 FROM SYSIBM.SYSDUMMY1
-#      maximum-pool-size: 50
-#      minimum-idle: 10
-#    initialization-mode: embedded
-#    name: athenadb
-#    platform: derby
-#    schema: classpath:sql/schema-derby.sql
-#    test-on-borrow: true
-#    url: jdbc:derby:memory:athenadb;create=true
   jpa:
     generate-ddl: false
     hibernate:

@@ -31,7 +31,7 @@ plugins {
     id 'com.github.kt3k.coveralls' version '2.10.1'
 }
 
-def jacocoProjects = rootProject.subprojects.stream().filter {p -> p.plugins.hasPlugin('jacoco')}.collect(Collectors.toSet())
+def jacocoProjects = rootProject.subprojects.stream().filter { p -> p.plugins.hasPlugin('jacoco') }.collect(Collectors.toSet())
 
 check.dependsOn jacocoTestCoverageVerification
 

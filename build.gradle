@@ -55,7 +55,7 @@ subprojects {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-    if ( project.plugins.hasPlugin('scala')) {
+    if (project.plugins.hasPlugin('scala')) {
         compileScala.options.encoding = "UTF-8"
         compileTestScala.options.encoding = "UTF-8"
     }
