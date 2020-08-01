@@ -8,7 +8,7 @@ drop table if exists historical_breakage_rate;
 -- card type
 create table card_type
 (
-    gc_type_code      varchar(16) not null,
+    gc_type_code      varchar(16) not null distkey sortkey,
     gc_name           char(128),
     gc_business_model varchar(32),
     gc_merchant_code  varchar(16),
@@ -21,7 +21,7 @@ create table card_type
 -- merchant
 create table merchant
 (
-    merchant_code varchar(16) not null,
+    merchant_code varchar(16) not null distkey sortkey,
     merchant_name varchar(64)
 );
 

@@ -132,4 +132,23 @@ public class NativeQueries {
                     "     card_type\n" +
                     "where V.gc_type_code = card_type.gc_type_code\n" +
                     "order by V.total_sales desc;";
+
+    public static final String UNREDEEMED_VALUE_ON_UNEXPIRED_CARDS_BY_CUSTOMER =
+            "select CT.gc_name, P.card_id, C.gc_expiry_date, purchase_value, redeemed_value, (purchase_value - redeemed_value) as unredeemed   from\n" +
+                    "    (select sum(transaction.tx_value) as purchase_value, card.gc_uuid as card_id from transaction, card\n" +
+                    "        where transaction.tx_type = 'PURCHASE' and\n" +
+                    "           transaction.gc_uuid = card.gc_uuid and\n" +
+                    "           transaction.customer_id = ? and\n" +
+                    "           card.gc_expiry_date > current_date\n" +
+                    "    group by card.gc_uuid) P,\n" +
+                    "    (select sum(transaction.tx_value) as redeemed_value, card.gc_uuid as card_id from transaction, card\n" +
+                    "    where transaction.tx_type = 'REDEMPTION' and\n" +
+                    "            transaction.gc_uuid = card.gc_uuid and\n" +
+                    "            transaction.customer_id = ? and\n" +
+                    "            card.gc_expiry_date > current_date\n" +
+                    "    group by card.gc_uuid) R, card C, card_type CT\n" +
+                    "where P.card_id = R.card_id and\n" +
+                    "    P.card_id = C.gc_uuid and\n" +
+                    "      C.gc_type_code = CT.gc_type_code\n" +
+                    "order by gc_expiry_date;";
 }

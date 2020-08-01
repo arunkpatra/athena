@@ -44,4 +44,6 @@ public interface AthenaBackendService {
 
     CardBreakageForecast getBreakageForecastForCard(String cardCode);
 
+    List<CustomerCardDetails> getCustomerCardDetails(String customerID);
+
 }

@@ -98,7 +98,7 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
                 .mapToDouble(a -> a)
                 .average();
 
-        double averageYearlyBreakageRate = optionalAverageRate.isPresent() ? optionalAverageRate.getAsDouble() : 0;
+        double averageYearlyBreakageRate = optionalAverageRate.isPresent() ? optionalAverageRate.getAsDouble() : 0; // average historical
 
         // What is the total sales volumes in this year for this card?
         List<CardSalesThisYear> cardSalesThisYear = jdbcTemplate.query(SALES_THIS_YEAR_BY_CARD, new Object[]{cardCode},
@@ -110,5 +110,18 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
 
         // extrapolate
         return new CardBreakageForecast(cardCode, Math.round(averageYearlyBreakageRate * totalSalesThisYearForCard * 100.0) / 100.0);
+    }
+
+    @Override
+    public List<CustomerCardDetails> getCustomerCardDetails(String customerID) {
+        return jdbcTemplate.query(UNREDEEMED_VALUE_ON_UNEXPIRED_CARDS_BY_CUSTOMER, new Object[]{customerID, customerID},
+                (rs, rowNum) -> new CustomerCardDetails(
+                        rs.getString(1).trim(),
+                        rs.getString(2).trim(),
+                        rs.getFloat(4),
+                        rs.getFloat(6),
+                        rs.getDate(3).toString()
+                )
+        );
     }
 }

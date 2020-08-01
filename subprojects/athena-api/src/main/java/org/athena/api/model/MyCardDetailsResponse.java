@@ -1,18 +1,18 @@
-/**
+/*
  * MIT License
- * <p>
+ *
  * Copyright (c) 2020 Arun Patra
- * <p>
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * <p>
+ *
  * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * <p>
+ *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -22,18 +22,26 @@
  * SOFTWARE.
  */
 
-package org.athena.api;
+package org.athena.api.model;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.convert.ConversionService;
-import org.springframework.core.convert.support.DefaultConversionService;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-@SpringBootApplication
-public class AthenaAPIApplication {
+import java.util.List;
 
-    public static void main(String[] args) {
-        SpringApplication.run(AthenaAPIApplication.class, args);
+@ApiModel(value = "MyCardDetailsResponse", description = "Customer card details")
+public class MyCardDetailsResponse {
+
+    @ApiModelProperty(value = "The list of Top selling cards by quantity")
+    private final List<CustomerCardDetails> customerCardDetails;
+
+    @JsonCreator
+    public MyCardDetailsResponse(List<CustomerCardDetails> customerCardDetails) {
+        this.customerCardDetails = customerCardDetails;
+    }
+
+    public List<CustomerCardDetails> getCustomerCardDetails() {
+        return customerCardDetails;
     }
 }
