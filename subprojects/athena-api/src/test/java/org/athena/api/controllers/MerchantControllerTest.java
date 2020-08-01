@@ -25,8 +25,7 @@
 package org.athena.api.controllers;
 
 import org.athena.api.AbstractTest;
-import org.athena.api.model.ErrorResponse;
-import org.athena.api.model.TopGrossingMerchantsResponse;
+import org.athena.api.model.*;
 import org.athena.api.queries.NativeQueries;
 import org.junit.Assert;
 import org.junit.Test;
@@ -64,5 +63,49 @@ public class MerchantControllerTest extends AbstractTest {
                 Optional.empty(),
                 Optional.empty(),
                 ErrorResponse.class);
+    }
+
+    @Test
+    public void getMerchantBreakageForecastByCardCategory() throws Exception {
+        MerchantBreakageByCardCategoryResponse response = mockHttpExchange(
+                get("/api/merchant/M-0001/breakage/forecast/category/Dining"),
+                status().isInternalServerError(),
+                Optional.empty(),
+                Optional.empty(),
+                MerchantBreakageByCardCategoryResponse.class);
+        // TODO: Add assertions when API is implemented
+    }
+
+    @Test
+    public void getMerchantBreakageForecastByCardMedium() throws Exception {
+        MerchantBreakageByCardMediumResponse response = mockHttpExchange(
+                get("/api/merchant/M-0001/breakage/forecast/cardmedium/Physical"),
+                status().isInternalServerError(),
+                Optional.empty(),
+                Optional.empty(),
+                MerchantBreakageByCardMediumResponse.class);
+        // TODO: Add assertions when API is implemented
+    }
+
+    @Test
+    public void getMerchantBreakageForecastByBusinessModel() throws Exception {
+        MerchantBreakageByBusinessModelResponse response = mockHttpExchange(
+                get("/api/merchant/M-0001/breakage/forecast/businessmodel/Open-Loop"),
+                status().isInternalServerError(),
+                Optional.empty(),
+                Optional.empty(),
+                MerchantBreakageByBusinessModelResponse.class);
+        // TODO: Add assertions when API is implemented
+    }
+
+    @Test
+    public void getMerchantBreakageForecastByCustomerSegment() throws Exception {
+        MerchantBreakageByCustomerSegmentResponse response = mockHttpExchange(
+                get("/api/merchant/M-0001/breakage/forecast/customersegment/Adult"),
+                status().isInternalServerError(),
+                Optional.empty(),
+                Optional.empty(),
+                MerchantBreakageByCustomerSegmentResponse.class);
+        // TODO: Add assertions when API is implemented
     }
 }

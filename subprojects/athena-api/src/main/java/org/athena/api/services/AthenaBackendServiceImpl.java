@@ -66,11 +66,6 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
     }
 
     @Override
-    public List<MerchantSales> getWorstPerformingMerchants() {
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
     public List<MerchantBreakage> getMerchantBreakages() {
         return jdbcTemplate.query(BREAKAGE_BY_MERCHANT,
                 (rs, rowNum) -> new MerchantBreakage(rs.getString(1).trim(), rs.getDouble(2))
@@ -123,5 +118,35 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
                         rs.getDate(3).toString()
                 )
         );
+    }
+
+    // TODO: Implement me
+    @Override
+    public List<CardBreakage> getMerchantBreakageByBusinessModel(String merchantID, String businessModel) {
+        throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
+    }
+
+    // TODO: Implement me
+    @Override
+    public List<CardBreakage> getMerchantBreakageByCardCategory(String merchantID, String cardCategory) {
+        throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
+    }
+
+    // TODO: Implement me
+    @Override
+    public List<CardBreakage> getMerchantBreakageByCardMedium(String merchantID, String medium) {
+        throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
+    }
+
+    // TODO: Implement me
+    @Override
+    public List<CardBreakage> getMerchantBreakageByCustomerSegment(String merchantID, String segment) {
+        throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
+    }
+
+    //TODO: Implement me
+    @Override
+    public List<MerchantSales> getWorstPerformingMerchants() {
+        throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
     }
 }

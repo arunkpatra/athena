@@ -23,20 +23,13 @@
  */
 package org.athena.api.controllers;
 
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.*;
 import org.athena.api.exceptions.AthenaException;
-import org.athena.api.model.ErrorResponse;
-import org.athena.api.model.TopGrossingMerchantsResponse;
+import org.athena.api.model.*;
 import org.athena.api.services.AthenaBackendService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
@@ -67,11 +60,11 @@ public class MerchantController extends AbstractAthenaRestController {
         try {
             return new ResponseEntity<>(new TopGrossingMerchantsResponse(athenaBackendService.getTopGrossingMerchants()), HttpStatus.OK);
         } catch (Throwable t) {
-            throw new AthenaException(t);
+            throw new AthenaException(t.getMessage(), t);
         }
     }
 
-    @ApiOperation(value = "Worst performing merchants by volume",
+    @ApiOperation(value = "WIP: Worst performing merchants by volume",
             notes = "Get top grossing merchants by volume", response = TopGrossingMerchantsResponse.class,
             consumes = "application/json",
             produces = "application/json", hidden = true)
@@ -87,7 +80,104 @@ public class MerchantController extends AbstractAthenaRestController {
         try {
             return new ResponseEntity<>(new TopGrossingMerchantsResponse(athenaBackendService.getWorstPerformingMerchants()), HttpStatus.OK);
         } catch (Throwable t) {
-            throw new AthenaException(t);
+            throw new AthenaException(t.getMessage(), t);
+        }
+    }
+
+
+    @ApiOperation(value = "*Get breakage forecast for a merchant by card category",
+            notes = "WIP: Get breakage forecast for a merchant by card category", response = MerchantBreakageByCardCategoryResponse.class,
+            consumes = "application/json",
+            produces = "application/json")
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/category/{category}", method = GET)
+    @ResponseBody
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+                    response = MerchantBreakageByCardCategoryResponse.class),
+            @ApiResponse(code = 500, message = "An internal error occurred.",
+                    response = ErrorResponse.class)
+    })
+    public ResponseEntity<MerchantBreakageByCardCategoryResponse> merchantBreakageByCardCategory(
+            @ApiParam(name = "merchantID", required = true)
+            @PathVariable(name = "merchantID")String merchantID,
+            @ApiParam(name = "category", required = true, defaultValue = "Clothing", allowableValues = "Dining, Entertainment, Fuel, Recreation, Spa/Salon, Clothing")
+            @PathVariable(name = "category")String category) throws AthenaException {
+        try {
+            return new ResponseEntity<>(new MerchantBreakageByCardCategoryResponse(athenaBackendService.getMerchantBreakageByCardCategory(merchantID, category)), HttpStatus.OK);
+        } catch (Throwable t) {
+            throw new AthenaException(t.getMessage(), t);
+        }
+    }
+
+    @ApiOperation(value = "*Get breakage forecast for a merchant by business model",
+            notes = "WIP: Get breakage forecast for a merchant by business model", response = MerchantBreakageByBusinessModelResponse.class,
+            consumes = "application/json",
+            produces = "application/json")
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/businessmodel/{businessModel}", method = GET)
+    @ResponseBody
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+                    response = MerchantBreakageByBusinessModelResponse.class),
+            @ApiResponse(code = 500, message = "An internal error occurred.",
+                    response = ErrorResponse.class)
+    })
+    public ResponseEntity<MerchantBreakageByBusinessModelResponse> merchantBreakageByBusinessModel(
+            @ApiParam(name = "merchantID", required = true)
+            @PathVariable(name = "merchantID") String merchantID,
+            @ApiParam(name = "businessModel", required = true, defaultValue = "Closed Loop", allowableValues = "Closed Loop, Semi Closed Loop, Semi Closed Loop")
+            @PathVariable(name = "businessModel")String businessModel) throws AthenaException {
+        try {
+            return new ResponseEntity<>(new MerchantBreakageByBusinessModelResponse(athenaBackendService.getMerchantBreakageByBusinessModel(merchantID, businessModel)), HttpStatus.OK);
+        } catch (Throwable t) {
+            throw new AthenaException(t.getMessage(), t);
+        }
+    }
+
+    @ApiOperation(value = "*Get breakage forecast for a merchant by card medium",
+            notes = "WIP: Get breakage forecast for a merchant by card medium", response = MerchantBreakageByCardMediumResponse.class,
+            consumes = "application/json",
+            produces = "application/json")
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/cardmedium/{medium}", method = GET)
+    @ResponseBody
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+                    response = MerchantBreakageByCardMediumResponse.class),
+            @ApiResponse(code = 500, message = "An internal error occurred.",
+                    response = ErrorResponse.class)
+    })
+    public ResponseEntity<MerchantBreakageByCardMediumResponse> merchantBreakageByCardMedium(
+            @ApiParam(name = "merchantID", required = true)
+            @PathVariable(name = "merchantID") String merchantID,
+            @ApiParam(name = "medium", required = true, defaultValue = "Physical", allowableValues = "Physical, Digital")
+            @PathVariable(name = "medium") String medium) throws AthenaException {
+        try {
+            return new ResponseEntity<>(new MerchantBreakageByCardMediumResponse(athenaBackendService.getMerchantBreakageByCardMedium(merchantID, medium)), HttpStatus.OK);
+        } catch (Throwable t) {
+            throw new AthenaException(t.getMessage(), t);
+        }
+    }
+
+    @ApiOperation(value = "*Get breakage forecast for a merchant by customer segment",
+            notes = "WIP: Get breakage forecast for a merchant by customer segment", response = MerchantBreakageByCustomerSegmentResponse.class,
+            consumes = "application/json",
+            produces = "application/json")
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/customersegment/{segment}", method = GET)
+    @ResponseBody
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+                    response = MerchantBreakageByCustomerSegmentResponse.class),
+            @ApiResponse(code = 500, message = "An internal error occurred.",
+                    response = ErrorResponse.class)
+    })
+    public ResponseEntity<MerchantBreakageByCustomerSegmentResponse> merchantBreakageByCustomerSegment(
+            @ApiParam(name = "merchantID", required = true)
+            @PathVariable(name = "merchantID") String merchantID,
+            @ApiParam(name = "segment", required = true, defaultValue = "Adult", allowableValues = "Kid, Adult, Senior, Millennial")
+            @PathVariable(name = "segment") String segment) throws AthenaException {
+        try {
+            return new ResponseEntity<>(new MerchantBreakageByCustomerSegmentResponse(athenaBackendService.getMerchantBreakageByCustomerSegment(merchantID, segment)), HttpStatus.OK);
+        } catch (Throwable t) {
+            throw new AthenaException(t.getMessage(), t);
         }
     }
 }

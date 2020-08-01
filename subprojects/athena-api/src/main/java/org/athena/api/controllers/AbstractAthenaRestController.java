@@ -41,8 +41,8 @@ public abstract class AbstractAthenaRestController {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     @ExceptionHandler(AthenaException.class)
     public ErrorResponse handleAthenaBackendException(AthenaException e) {
-        String message = "An error occurred";
-        String errorDetail = "Error: " + e.getMessage();
+        String message = "Oops!";
+        String errorDetail = e.getMessage();
         LOGGER.error("Error occurred: description={}, detail={}", message, errorDetail);
         return new ErrorResponse(message, errorDetail);
     }
