@@ -6,21 +6,21 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
 
-@ApiModel(value = "MerchantBreakageByBusinessModelResponse", description = "Forecasted Breakage for a merchant by business model")
+@ApiModel(value = "MerchantBreakageByBusinessModelResponse", description = "Breakage for a merchant by business model")
 public class MerchantBreakageByBusinessModelResponse {
 
-    @ApiModelProperty(value = "Forecasted breakage for a card")
-    private final List<BusinessModelBreakage> cardBreakages;
+    @ApiModelProperty(value = "Breakage for a business model")
+    private final List<BusinessModelBreakage> businessModelBreakages;
     private final String merchantCode;
 
     @JsonCreator
-    public MerchantBreakageByBusinessModelResponse(List<BusinessModelBreakage> cardBreakages, String merchantCode) {
-        this.cardBreakages = cardBreakages;
+    public MerchantBreakageByBusinessModelResponse(List<BusinessModelBreakage> businessModelBreakages, String merchantCode) {
+        this.businessModelBreakages = businessModelBreakages;
         this.merchantCode = merchantCode;
     }
 
-    public List<BusinessModelBreakage> getCardBreakages() {
-        return cardBreakages;
+    public List<BusinessModelBreakage> getBusinessModelBreakages() {
+        return businessModelBreakages;
     }
 
     public String getMerchantCode() {

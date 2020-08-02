@@ -6,18 +6,18 @@ import io.swagger.annotations.ApiModelProperty;
 
 import java.util.List;
 
-@ApiModel(value = "MerchantBreakageByBusinessModelResponse", description = "Forecasted Breakage for a merchant by card category")
+@ApiModel(value = "MerchantBreakageByCardCategoryResponse", description = "Breakage for a merchant by card category")
 public class MerchantBreakageByCardCategoryResponse {
 
-    @ApiModelProperty(value = "Forecasted breakage for a card")
-    private final List<CardBreakage> cardBreakages;
+    @ApiModelProperty(value = "Breakage for a card category")
+    private final List<CardCategoryBreakage> cardCategoryBreakages;
 
     @JsonCreator
-    public MerchantBreakageByCardCategoryResponse(List<CardBreakage> cardBreakages) {
-        this.cardBreakages = cardBreakages;
+    public MerchantBreakageByCardCategoryResponse(List<CardCategoryBreakage> cardCategoryBreakages) {
+        this.cardCategoryBreakages = cardCategoryBreakages;
     }
 
-    public List<CardBreakage> getCardBreakages() {
-        return cardBreakages;
+    public List<CardCategoryBreakage> getCardCategoryBreakages() {
+        return cardCategoryBreakages;
     }
 }

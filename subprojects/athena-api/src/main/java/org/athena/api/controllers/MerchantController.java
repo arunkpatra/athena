@@ -104,8 +104,8 @@ public class MerchantController extends AbstractAthenaRestController {
         }
     }
 
-    @ApiOperation(value = "*Get breakage for a merchant by card category",
-            notes = "WIP: Get breakage for a merchant by card category(calculated over the last one year).", response = MerchantBreakageByCardCategoryResponse.class,
+    @ApiOperation(value = "Get breakage for a merchant by card category",
+            notes = "Get breakage for a merchant by card category(calculated over the last one year).", response = MerchantBreakageByCardCategoryResponse.class,
             consumes = "application/json",
             produces = "application/json")
     @RequestMapping(value = "/merchant/{merchantID}/breakage/category", method = GET)
