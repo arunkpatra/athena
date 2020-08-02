@@ -122,10 +122,11 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
         );
     }
 
-    // TODO: Implement me
     @Override
-    public List<CardBreakage> getMerchantBreakageByBusinessModel(String merchantID) {
-        throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
+    public List<BusinessModelBreakage> getMerchantBreakageByBusinessModel(String merchantID) {
+        return jdbcTemplate.query(MERCHANT_BREAKAGE_BY_BUSINESS_MODEL, new Object[]{merchantID, merchantID},
+                (rs, rowNum) -> new BusinessModelBreakage(rs.getString(1).trim(), rs.getDouble(2))
+        );
     }
 
     // TODO: Implement me

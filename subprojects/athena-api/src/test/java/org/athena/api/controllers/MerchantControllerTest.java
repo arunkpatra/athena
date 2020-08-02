@@ -113,11 +113,15 @@ public class MerchantControllerTest extends AbstractTest {
     public void getMerchantBreakageForecastByBusinessModel() throws Exception {
         MerchantBreakageByBusinessModelResponse response = mockHttpExchange(
                 get("/api/merchant/M-0001/breakage/businessmodel"),
-                status().isInternalServerError(),
+                status().isOk(),
                 Optional.empty(),
                 Optional.empty(),
                 MerchantBreakageByBusinessModelResponse.class);
-        // TODO: Add assertions when API is implemented
+        Assert.assertTrue("Empty response is unexpected", response.getCardBreakages().size() != 0);
+        Assert.assertNotNull("Expected nun null value", response.getMerchantCode());
+        Assert.assertNotNull("Expected nun null value", response.getCardBreakages().get(0).getBusinessModel());
+        Assert.assertTrue("Was not expecting negative value", response.getCardBreakages().get(0).getCardBreakage() >= 0);
+
     }
 
     @Test

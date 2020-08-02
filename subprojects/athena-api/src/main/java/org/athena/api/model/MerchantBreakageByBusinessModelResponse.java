@@ -10,14 +10,20 @@ import java.util.List;
 public class MerchantBreakageByBusinessModelResponse {
 
     @ApiModelProperty(value = "Forecasted breakage for a card")
-    private final List<CardBreakage> cardBreakages;
+    private final List<BusinessModelBreakage> cardBreakages;
+    private final String merchantCode;
 
     @JsonCreator
-    public MerchantBreakageByBusinessModelResponse(List<CardBreakage> cardBreakages) {
+    public MerchantBreakageByBusinessModelResponse(List<BusinessModelBreakage> cardBreakages, String merchantCode) {
         this.cardBreakages = cardBreakages;
+        this.merchantCode = merchantCode;
     }
 
-    public List<CardBreakage> getCardBreakages() {
+    public List<BusinessModelBreakage> getCardBreakages() {
         return cardBreakages;
+    }
+
+    public String getMerchantCode() {
+        return merchantCode;
     }
 }

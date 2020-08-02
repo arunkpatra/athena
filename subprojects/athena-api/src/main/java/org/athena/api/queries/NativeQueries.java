@@ -150,4 +150,30 @@ public class NativeQueries {
                     "    P.card_id = C.gc_uuid and\n" +
                     "      C.gc_type_code = CT.gc_type_code\n" +
                     "order by gc_expiry_date;";
+
+    public static final String MERCHANT_BREAKAGE_BY_BUSINESS_MODEL =
+            "select business_model, sum(breakage) as merchant_breakage_by_business_model\n" +
+                    "        from (select  P.tx_value                        as purchase_value,\n" +
+                    "                   R.total_redeemed                  as redeemed_value,\n" +
+                    "                   (P.tx_value - R.total_redeemed) as breakage,\n" +
+                    "                   P.gc_business_model               as business_model\n" +
+                    "            from (select gc_uuid, merchant_code, tx_value, card_type.gc_business_model\n" +
+                    "                  from transaction, card_type\n" +
+                    "                  where tx_type = 'PURCHASE'\n" +
+                    "                    and transaction.merchant_code = ?\n" +
+                    "                     and transaction.gc_type_code = card_type.gc_type_code) P, \n" +
+                    "                 (select gc_uuid, sum(tx_value) as total_redeemed\n" +
+                    "                  from transaction\n" +
+                    "                  where tx_type = 'REDEMPTION'\n" +
+                    "                    and transaction.merchant_code = ?\n" +
+                    "                  group by gc_uuid) R,                     \n" +
+                    "                 (select gc_uuid\n" +
+                    "                  from card\n" +
+                    "                  where gc_expiry_date < current_date\n" +
+                    "                    and (CURRENT_DATE::date - gc_expiry_date) < 365) E, \n" +
+                    "                 card                                           \n" +
+                    "            where P.gc_uuid = E.gc_uuid\n" +
+                    "              and E.gc_uuid = card.gc_uuid\n" +
+                    "              and E.gc_uuid = R.gc_uuid) MB\n" +
+                    "      group by business_model;";
 }

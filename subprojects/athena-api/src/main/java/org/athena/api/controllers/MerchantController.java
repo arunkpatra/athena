@@ -126,8 +126,8 @@ public class MerchantController extends AbstractAthenaRestController {
         }
     }
 
-    @ApiOperation(value = "*Get breakage for a merchant by business model",
-            notes = "WIP: Get breakage for a merchant by business model(calculated over the last one year).", response = MerchantBreakageByBusinessModelResponse.class,
+    @ApiOperation(value = "Get breakage for a merchant by business model",
+            notes = "Get breakage for a merchant by business model(calculated over the last one year).", response = MerchantBreakageByBusinessModelResponse.class,
             consumes = "application/json",
             produces = "application/json")
     @RequestMapping(value = "/merchant/{merchantID}/breakage/businessmodel", method = GET)
@@ -142,7 +142,7 @@ public class MerchantController extends AbstractAthenaRestController {
             @ApiParam(name = "merchantID", required = true)
             @PathVariable(name = "merchantID") String merchantID) throws AthenaException {
         try {
-            return new ResponseEntity<>(new MerchantBreakageByBusinessModelResponse(athenaBackendService.getMerchantBreakageByBusinessModel(merchantID)), HttpStatus.OK);
+            return new ResponseEntity<>(new MerchantBreakageByBusinessModelResponse(athenaBackendService.getMerchantBreakageByBusinessModel(merchantID), merchantID), HttpStatus.OK);
         } catch (Throwable t) {
             throw new AthenaException(t.getMessage(), t);
         }

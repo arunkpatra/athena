@@ -22,36 +22,23 @@
  * SOFTWARE.
  */
 
-package org.athena.api.services;
+package org.athena.api.model;
 
-import org.athena.api.model.*;
+public class BusinessModelBreakage {
 
-import java.util.List;
+    private final String businessModel;
+    private final double cardBreakage;
 
-public interface AthenaBackendService {
+    public BusinessModelBreakage(String businessModel, double cardBreakage) {
+        this.businessModel = businessModel;
+        this.cardBreakage = cardBreakage;
+    }
 
-    List<TopSellingCardByQuantity> getTopSellingCardsByQuantity();
+    public String getBusinessModel() {
+        return businessModel;
+    }
 
-    List<TopGrossingCard> getTopGrossingCards();
-
-    List<MerchantSales> getTopGrossingMerchants();
-
-    List<MerchantSales> getWorstPerformingMerchants();
-
-    List<MerchantBreakage> getMerchantBreakages();
-
-    List<CardBreakage> getCardBreakages();
-
-    List<BusinessModelBreakage> getMerchantBreakageByBusinessModel(String merchantID);
-
-    List<CardBreakage> getMerchantBreakageByCardCategory(String merchantID);
-
-    List<CardBreakage> getMerchantBreakageByCardMedium(String merchantID, String medium);
-
-    List<CardBreakage> getMerchantBreakageByCustomerSegment(String merchantID, String segment);
-
-    CardBreakageForecast getBreakageForecastForCard(String cardCode);
-
-    List<CustomerCardDetails> getCustomerCardDetails(String customerID);
-
+    public double getCardBreakage() {
+        return cardBreakage;
+    }
 }
