@@ -5,6 +5,7 @@
 [![Latest Release](https://img.shields.io/github/v/release/arunkpatra/athena?include_prereleases&sort=semver)](https://github.com/arunkpatra/athena/releases)
 [![Join the chat at https://gitter.im/athena-chat/community](https://badges.gitter.im/athena-chat/community.svg)](https://gitter.im/athena-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+[Demo URL](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (I switch it off when not in use)
 
 <img src="assets/athena.png" width="1280px" alt="Athena" />
 
