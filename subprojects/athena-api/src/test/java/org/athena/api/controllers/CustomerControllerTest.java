@@ -31,6 +31,7 @@ public class CustomerControllerTest extends AbstractTest {
         Assert.assertNotNull("Expected nun null value", response.getCustomerCardDetails().get(0).getCardName());
         Assert.assertNotNull("Expected nun null value", response.getCustomerCardDetails().get(0).getCardID());
         Assert.assertNotNull("Expected nun null value", response.getCustomerCardDetails().get(0).getExpiryDate());
+        Assert.assertNotNull("Expected nun null value", response.getCustomerCardDetails().get(0).isHasBreakage());
         Assert.assertTrue("Was not expecting negative value", response.getCustomerCardDetails().get(0).getUnredeemedValue() >= 0);
         Assert.assertTrue("Was not expecting negative value", response.getCustomerCardDetails().get(0).getCardValue() >= 0);
     }

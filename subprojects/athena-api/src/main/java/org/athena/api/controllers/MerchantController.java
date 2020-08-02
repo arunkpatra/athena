@@ -64,6 +64,26 @@ public class MerchantController extends AbstractAthenaRestController {
         }
     }
 
+    @ApiOperation(value = "Get breakage by merchant",
+            notes = "Get breakage by merchant", response = MerchantBreakageResponse.class,
+            consumes = "application/json",
+            produces = "application/json")
+    @RequestMapping(value = "/merchant/breakage", method = GET)
+    @ResponseBody
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Merchant breakages were retrieved",
+                    response = MerchantBreakageResponse.class),
+            @ApiResponse(code = 500, message = "An internal error occurred.",
+                    response = ErrorResponse.class)
+    })
+    public ResponseEntity<MerchantBreakageResponse> merchantBreakages() throws AthenaException {
+        try {
+            return new ResponseEntity<>(new MerchantBreakageResponse(athenaBackendService.getMerchantBreakages()), HttpStatus.OK);
+        } catch (Throwable t) {
+            throw new AthenaException(t);
+        }
+    }
+
     @ApiOperation(value = "WIP: Worst performing merchants by volume",
             notes = "Get top grossing merchants by volume", response = TopGrossingMerchantsResponse.class,
             consumes = "application/json",
@@ -84,63 +104,58 @@ public class MerchantController extends AbstractAthenaRestController {
         }
     }
 
-
-    @ApiOperation(value = "*Get breakage forecast for a merchant by card category",
-            notes = "WIP: Get breakage forecast for a merchant by card category", response = MerchantBreakageByCardCategoryResponse.class,
+    @ApiOperation(value = "*Get breakage for a merchant by card category",
+            notes = "WIP: Get breakage for a merchant by card category(calculated over the last one year).", response = MerchantBreakageByCardCategoryResponse.class,
             consumes = "application/json",
             produces = "application/json")
-    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/category/{category}", method = GET)
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/category", method = GET)
     @ResponseBody
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+            @ApiResponse(code = 200, message = "Breakage for merchant was retrieved",
                     response = MerchantBreakageByCardCategoryResponse.class),
             @ApiResponse(code = 500, message = "An internal error occurred.",
                     response = ErrorResponse.class)
     })
     public ResponseEntity<MerchantBreakageByCardCategoryResponse> merchantBreakageByCardCategory(
             @ApiParam(name = "merchantID", required = true)
-            @PathVariable(name = "merchantID")String merchantID,
-            @ApiParam(name = "category", required = true, defaultValue = "Clothing", allowableValues = "Dining, Entertainment, Fuel, Recreation, Spa/Salon, Clothing")
-            @PathVariable(name = "category")String category) throws AthenaException {
+            @PathVariable(name = "merchantID")String merchantID) throws AthenaException {
         try {
-            return new ResponseEntity<>(new MerchantBreakageByCardCategoryResponse(athenaBackendService.getMerchantBreakageByCardCategory(merchantID, category)), HttpStatus.OK);
+            return new ResponseEntity<>(new MerchantBreakageByCardCategoryResponse(athenaBackendService.getMerchantBreakageByCardCategory(merchantID)), HttpStatus.OK);
         } catch (Throwable t) {
             throw new AthenaException(t.getMessage(), t);
         }
     }
 
-    @ApiOperation(value = "*Get breakage forecast for a merchant by business model",
-            notes = "WIP: Get breakage forecast for a merchant by business model", response = MerchantBreakageByBusinessModelResponse.class,
+    @ApiOperation(value = "*Get breakage for a merchant by business model",
+            notes = "WIP: Get breakage for a merchant by business model(calculated over the last one year).", response = MerchantBreakageByBusinessModelResponse.class,
             consumes = "application/json",
             produces = "application/json")
-    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/businessmodel/{businessModel}", method = GET)
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/businessmodel", method = GET)
     @ResponseBody
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+            @ApiResponse(code = 200, message = "Breakage for merchant was retrieved",
                     response = MerchantBreakageByBusinessModelResponse.class),
             @ApiResponse(code = 500, message = "An internal error occurred.",
                     response = ErrorResponse.class)
     })
     public ResponseEntity<MerchantBreakageByBusinessModelResponse> merchantBreakageByBusinessModel(
             @ApiParam(name = "merchantID", required = true)
-            @PathVariable(name = "merchantID") String merchantID,
-            @ApiParam(name = "businessModel", required = true, defaultValue = "Closed Loop", allowableValues = "Closed Loop, Semi Closed Loop, Semi Closed Loop")
-            @PathVariable(name = "businessModel")String businessModel) throws AthenaException {
+            @PathVariable(name = "merchantID") String merchantID) throws AthenaException {
         try {
-            return new ResponseEntity<>(new MerchantBreakageByBusinessModelResponse(athenaBackendService.getMerchantBreakageByBusinessModel(merchantID, businessModel)), HttpStatus.OK);
+            return new ResponseEntity<>(new MerchantBreakageByBusinessModelResponse(athenaBackendService.getMerchantBreakageByBusinessModel(merchantID)), HttpStatus.OK);
         } catch (Throwable t) {
             throw new AthenaException(t.getMessage(), t);
         }
     }
 
-    @ApiOperation(value = "*Get breakage forecast for a merchant by card medium",
-            notes = "WIP: Get breakage forecast for a merchant by card medium", response = MerchantBreakageByCardMediumResponse.class,
+    @ApiOperation(value = "*Get breakage for a merchant by card medium",
+            notes = "WIP: Get breakage for a merchant by card medium(calculated over the last one year).", response = MerchantBreakageByCardMediumResponse.class,
             consumes = "application/json",
             produces = "application/json")
-    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/cardmedium/{medium}", method = GET)
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/cardmedium/{medium}", method = GET)
     @ResponseBody
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+            @ApiResponse(code = 200, message = "Breakage for merchant was retrieved",
                     response = MerchantBreakageByCardMediumResponse.class),
             @ApiResponse(code = 500, message = "An internal error occurred.",
                     response = ErrorResponse.class)
@@ -157,14 +172,14 @@ public class MerchantController extends AbstractAthenaRestController {
         }
     }
 
-    @ApiOperation(value = "*Get breakage forecast for a merchant by customer segment",
-            notes = "WIP: Get breakage forecast for a merchant by customer segment", response = MerchantBreakageByCustomerSegmentResponse.class,
+    @ApiOperation(value = "*Get breakage for a merchant by customer segment",
+            notes = "WIP: Get breakage for a merchant by customer segment(calculated over the last one year).", response = MerchantBreakageByCustomerSegmentResponse.class,
             consumes = "application/json",
             produces = "application/json")
-    @RequestMapping(value = "/merchant/{merchantID}/breakage/forecast/customersegment/{segment}", method = GET)
+    @RequestMapping(value = "/merchant/{merchantID}/breakage/customersegment/{segment}", method = GET)
     @ResponseBody
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Breakage forecast for merchant was retrieved",
+            @ApiResponse(code = 200, message = "Breakage for merchant was retrieved",
                     response = MerchantBreakageByCustomerSegmentResponse.class),
             @ApiResponse(code = 500, message = "An internal error occurred.",
                     response = ErrorResponse.class)

@@ -24,18 +24,27 @@
 
 package org.athena.api.controllers;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.athena.api.AbstractTest;
+import org.athena.api.exceptions.AthenaException;
 import org.athena.api.model.*;
 import org.athena.api.queries.NativeQueries;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Optional;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 public class MerchantControllerTest extends AbstractTest {
 
@@ -56,6 +65,19 @@ public class MerchantControllerTest extends AbstractTest {
     }
 
     @Test
+    public void getMerchantBreakageTest() throws Exception {
+        MerchantBreakageResponse response = mockHttpExchange(
+                get("/api/merchant/breakage"),
+                status().isOk(),
+                Optional.empty(),
+                Optional.empty(),
+                MerchantBreakageResponse.class);
+        Assert.assertTrue("Empty response is unexpected", response.getMerchantBreakages().size() != 0);
+        Assert.assertNotNull("Expected nun null value", response.getMerchantBreakages().get(0).getMerchantName());
+        Assert.assertTrue("Was not expecting negative value", response.getMerchantBreakages().get(0).getMerchantBreakage() >= 0);
+    }
+
+    @Test
     public void getWorstGrossingMerchantsTest() throws Exception {
         ErrorResponse response = mockHttpExchange(
                 get("/api/merchant/worstgrossing"),
@@ -68,7 +90,7 @@ public class MerchantControllerTest extends AbstractTest {
     @Test
     public void getMerchantBreakageForecastByCardCategory() throws Exception {
         MerchantBreakageByCardCategoryResponse response = mockHttpExchange(
-                get("/api/merchant/M-0001/breakage/forecast/category/Dining"),
+                get("/api/merchant/M-0001/breakage/category"),
                 status().isInternalServerError(),
                 Optional.empty(),
                 Optional.empty(),
@@ -79,7 +101,7 @@ public class MerchantControllerTest extends AbstractTest {
     @Test
     public void getMerchantBreakageForecastByCardMedium() throws Exception {
         MerchantBreakageByCardMediumResponse response = mockHttpExchange(
-                get("/api/merchant/M-0001/breakage/forecast/cardmedium/Physical"),
+                get("/api/merchant/M-0001/breakage/cardmedium/Physical"),
                 status().isInternalServerError(),
                 Optional.empty(),
                 Optional.empty(),
@@ -90,7 +112,7 @@ public class MerchantControllerTest extends AbstractTest {
     @Test
     public void getMerchantBreakageForecastByBusinessModel() throws Exception {
         MerchantBreakageByBusinessModelResponse response = mockHttpExchange(
-                get("/api/merchant/M-0001/breakage/forecast/businessmodel/Open-Loop"),
+                get("/api/merchant/M-0001/breakage/businessmodel"),
                 status().isInternalServerError(),
                 Optional.empty(),
                 Optional.empty(),
@@ -101,7 +123,7 @@ public class MerchantControllerTest extends AbstractTest {
     @Test
     public void getMerchantBreakageForecastByCustomerSegment() throws Exception {
         MerchantBreakageByCustomerSegmentResponse response = mockHttpExchange(
-                get("/api/merchant/M-0001/breakage/forecast/customersegment/Adult"),
+                get("/api/merchant/M-0001/breakage/customersegment/Adult"),
                 status().isInternalServerError(),
                 Optional.empty(),
                 Optional.empty(),

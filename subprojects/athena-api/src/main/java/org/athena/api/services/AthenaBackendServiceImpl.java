@@ -27,6 +27,7 @@ package org.athena.api.services;
 import org.athena.api.model.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.OptionalDouble;
 
@@ -109,26 +110,27 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
 
     @Override
     public List<CustomerCardDetails> getCustomerCardDetails(String customerID) {
-        return jdbcTemplate.query(UNREDEEMED_VALUE_ON_UNEXPIRED_CARDS_BY_CUSTOMER, new Object[]{customerID, customerID},
+        java.util.Date today = new java.util.Date();
+        return jdbcTemplate.query(VALUE_ON_CARDS_BY_CUSTOMER, new Object[]{customerID, customerID},
                 (rs, rowNum) -> new CustomerCardDetails(
                         rs.getString(1).trim(),
                         rs.getString(2).trim(),
                         rs.getFloat(4),
                         rs.getFloat(6),
-                        rs.getDate(3).toString()
+                        rs.getDate(3).toString(), rs.getDate(3).before(today)
                 )
         );
     }
 
     // TODO: Implement me
     @Override
-    public List<CardBreakage> getMerchantBreakageByBusinessModel(String merchantID, String businessModel) {
+    public List<CardBreakage> getMerchantBreakageByBusinessModel(String merchantID) {
         throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
     }
 
     // TODO: Implement me
     @Override
-    public List<CardBreakage> getMerchantBreakageByCardCategory(String merchantID, String cardCategory) {
+    public List<CardBreakage> getMerchantBreakageByCardCategory(String merchantID) {
         throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
     }
 

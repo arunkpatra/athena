@@ -42,9 +42,9 @@ public interface AthenaBackendService {
 
     List<CardBreakage> getCardBreakages();
 
-    List<CardBreakage> getMerchantBreakageByBusinessModel(String merchantID, String businessModel);
+    List<CardBreakage> getMerchantBreakageByBusinessModel(String merchantID);
 
-    List<CardBreakage> getMerchantBreakageByCardCategory(String merchantID, String cardCategory);
+    List<CardBreakage> getMerchantBreakageByCardCategory(String merchantID);
 
     List<CardBreakage> getMerchantBreakageByCardMedium(String merchantID, String medium);
 

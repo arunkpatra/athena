@@ -6,14 +6,13 @@ select CT.gc_name, P.card_id, C.gc_expiry_date, purchase_value, redeemed_value, 
     (select sum(transaction.tx_value) as purchase_value, card.gc_uuid as card_id from transaction, card
         where transaction.tx_type = 'PURCHASE' and
            transaction.gc_uuid = card.gc_uuid and
-           transaction.customer_id = '76809bcc-0e1f-4b44-8119-8a795b103678' and
-           card.gc_expiry_date > current_date
+           (CURRENT_DATE::date - transaction.tx_date) < 365 and
+           transaction.customer_id = '76809bcc-0e1f-4b44-8119-8a795b103678'
     group by card.gc_uuid) P,
     (select sum(transaction.tx_value) as redeemed_value, card.gc_uuid as card_id from transaction, card
     where transaction.tx_type = 'REDEMPTION' and
             transaction.gc_uuid = card.gc_uuid and
-            transaction.customer_id = '76809bcc-0e1f-4b44-8119-8a795b103678' and
-            card.gc_expiry_date > current_date
+            transaction.customer_id = '76809bcc-0e1f-4b44-8119-8a795b103678'
     group by card.gc_uuid) R, card C, card_type CT
 
 where P.card_id = R.card_id and

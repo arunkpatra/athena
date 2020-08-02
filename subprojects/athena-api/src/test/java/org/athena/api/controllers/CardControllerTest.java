@@ -25,6 +25,7 @@
 package org.athena.api.controllers;
 
 import org.athena.api.AbstractTest;
+import org.athena.api.model.CardBreakageResponse;
 import org.athena.api.model.TopGrossingCardsResponse;
 import org.athena.api.model.TopSellingCardsByQuantityResponse;
 import org.athena.api.queries.NativeQueries;
@@ -41,6 +42,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class CardControllerTest extends AbstractTest {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CardControllerTest.class);
+
+    @Test
+    public void getCardBreakageTest() throws Exception {
+        CardBreakageResponse response = mockHttpExchange(
+                get("/api/card/breakage"),
+                status().isOk(),
+                Optional.empty(),
+                Optional.empty(),
+                CardBreakageResponse.class);
+        Assert.assertTrue("Empty response is unexpected", response.getCardBreakages().size() != 0);
+        Assert.assertNotNull("Expected nun null value", response.getCardBreakages().get(0).getCardName());
+        Assert.assertTrue("Was not expecting negative value", response.getCardBreakages().get(0).getCardBreakage() >= 0);
+    }
 
     @Test
     public void getTopSellingCardsByQuantityTest() throws Exception {

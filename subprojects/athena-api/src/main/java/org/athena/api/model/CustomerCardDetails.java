@@ -32,13 +32,15 @@ public class CustomerCardDetails {
     private final float cardValue;
     private final float unredeemedValue;
     private final String  expiryDate;
+    private final boolean hasBreakage;
 
-    public CustomerCardDetails(String cardName, String cardID, float cardValue, float unredeemedValue, String expiryDate) {
+    public CustomerCardDetails(String cardName, String cardID, float cardValue, float unredeemedValue, String expiryDate, boolean hasBreakage) {
         this.cardName = cardName;
         this.cardID = cardID;
         this.cardValue = cardValue;
         this.unredeemedValue = unredeemedValue;
         this.expiryDate = expiryDate;
+        this.hasBreakage = hasBreakage;
     }
 
     public String getCardName() {
@@ -59,5 +61,9 @@ public class CustomerCardDetails {
 
     public String getExpiryDate() {
         return expiryDate;
+    }
+
+    public boolean isHasBreakage() {
+        return hasBreakage;
     }
 }

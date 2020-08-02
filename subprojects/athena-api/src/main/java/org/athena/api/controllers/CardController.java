@@ -28,6 +28,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.athena.api.exceptions.AthenaException;
+import org.athena.api.model.CardBreakageResponse;
 import org.athena.api.model.ErrorResponse;
 import org.athena.api.model.TopGrossingCardsResponse;
 import org.athena.api.model.TopSellingCardsByQuantityResponse;
@@ -50,6 +51,26 @@ public class CardController extends AbstractAthenaRestController {
 
     public CardController(AthenaBackendService athenaBackendService) {
         this.athenaBackendService = athenaBackendService;
+    }
+
+    @ApiOperation(value = "Get breakage by card",
+            notes = "Get breakage by card", response = CardBreakageResponse.class,
+            consumes = "application/json",
+            produces = "application/json")
+    @RequestMapping(value = "/card/breakage", method = GET)
+    @ResponseBody
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Card breakages were retrieved",
+                    response = CardBreakageResponse.class),
+            @ApiResponse(code = 500, message = "An internal error occurred.",
+                    response = ErrorResponse.class)
+    })
+    public ResponseEntity<CardBreakageResponse> cardBreakages() throws AthenaException {
+        try {
+            return new ResponseEntity<>(new CardBreakageResponse(athenaBackendService.getCardBreakages()), HttpStatus.OK);
+        } catch (Throwable t) {
+            throw new AthenaException(t);
+        }
     }
 
     @ApiOperation(value = "Get top selling cards by quantity",
