@@ -60,7 +60,7 @@ public class BreakageController extends AbstractAthenaRestController {
                     response = ErrorResponse.class)
     })
     public ResponseEntity<CardBreakageForecastResponse> cardBreakageForecast(
-            @ApiParam(name = "cardTypeCode", required = true)
+            @ApiParam(name = "cardTypeCode", required = true, value = "The card type code. Use G-0001 as an example.", defaultValue = "G-0001")
             @PathVariable(name = "cardTypeCode") String cardTypeCode) throws AthenaException {
         try {
             return new ResponseEntity<>(new CardBreakageForecastResponse(

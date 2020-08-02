@@ -117,7 +117,7 @@ public class MerchantController extends AbstractAthenaRestController {
                     response = ErrorResponse.class)
     })
     public ResponseEntity<MerchantBreakageByCardCategoryResponse> merchantBreakageByCardCategory(
-            @ApiParam(name = "merchantID", required = true)
+            @ApiParam(name = "merchantID", required = true, value = "The merchant ID. Use M-0001 as an example.", defaultValue = "M-0001")
             @PathVariable(name = "merchantID")String merchantID) throws AthenaException {
         try {
             return new ResponseEntity<>(new MerchantBreakageByCardCategoryResponse(athenaBackendService.getMerchantBreakageByCardCategory(merchantID)), HttpStatus.OK);
@@ -139,7 +139,7 @@ public class MerchantController extends AbstractAthenaRestController {
                     response = ErrorResponse.class)
     })
     public ResponseEntity<MerchantBreakageByBusinessModelResponse> merchantBreakageByBusinessModel(
-            @ApiParam(name = "merchantID", required = true)
+            @ApiParam(name = "merchantID", required = true, value = "The merchant ID. Use M-0001 as an example.", defaultValue = "M-0001")
             @PathVariable(name = "merchantID") String merchantID) throws AthenaException {
         try {
             return new ResponseEntity<>(new MerchantBreakageByBusinessModelResponse(athenaBackendService.getMerchantBreakageByBusinessModel(merchantID), merchantID), HttpStatus.OK);

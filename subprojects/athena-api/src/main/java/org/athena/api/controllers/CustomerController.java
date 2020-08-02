@@ -60,7 +60,8 @@ public class CustomerController extends AbstractAthenaRestController {
                     response = ErrorResponse.class)
     })
     public ResponseEntity<MyCardDetailsResponse> getCustomerCardDetails(
-            @ApiParam(name = "customerID", required = true)
+            @ApiParam(name = "customerID", required = true, value = "The customer ID. Use 76809bcc-0e1f-4b44-8119-8a795b103678 as an example.",
+                    defaultValue = "76809bcc-0e1f-4b44-8119-8a795b103678")
             @PathVariable(name = "customerID") String customerID) throws AthenaException {
         try {
             return new ResponseEntity<>(new MyCardDetailsResponse(athenaBackendService.getCustomerCardDetails(customerID)), HttpStatus.OK);
