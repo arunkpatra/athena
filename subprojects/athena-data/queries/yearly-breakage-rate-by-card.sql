@@ -5,6 +5,7 @@
 -- input, as-of-date in YYYY-MM-DD, e.g. 2020-01-01.
 -- Although this is ideally run as an yearly job, it may be run quarterly also to calculate quarterly cut off breakage rates.
 
+-- TODO: Tune it, logically.
 
 select CC.gc_name,
        CC.gc_type_code                                              card_type_code,
