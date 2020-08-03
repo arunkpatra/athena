@@ -1,8 +1,0 @@
-gc-type-code,gc-name,gc-business-model,gc-merchant-code,gc-validity-days,gc-category,gc-reloadable,gc-funds-expire
-G-0001,Happy Student Gift Card,open-close-loop,M-0001,180,store-gift-card,FALSE,FALSE
-G-0002,Adidas Gift Card,close-loop,M-0002,180,store-gift-card,FALSE,FALSE
-G-0003,Staples Gift Card,close-loop,M-0003,180,store-gift-card,FALSE,FALSE
-G-0004,Starbucks Gift Card,close-loop,M-0004,180,store-gift-card,FALSE,FALSE
-G-0005,Subway Gift Card,close-loop,M-0005,180,store-gift-card,FALSE,FALSE
-G-0006,Panera Bread Gift Card,close-loop,M-0006,180,store-gift-card,FALSE,FALSE
-G-0007,Happy You eGift Card,open-close-loop,M-0001,180,specialty-retailer-gift-cards,FALSE,FALSE
