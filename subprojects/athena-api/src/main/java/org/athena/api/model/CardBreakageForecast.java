@@ -27,9 +27,9 @@ package org.athena.api.model;
 public class CardBreakageForecast {
 
     private final String cardCode;
-    private final double breakageForecast;
+    private final String breakageForecast;
 
-    public CardBreakageForecast(String cardCode, double breakageForecast) {
+    public CardBreakageForecast(String cardCode, String breakageForecast) {
         this.cardCode = cardCode;
         this.breakageForecast = breakageForecast;
     }
@@ -38,7 +38,7 @@ public class CardBreakageForecast {
         return cardCode;
     }
 
-    public double getBreakageForecast() {
+    public String getBreakageForecast() {
         return breakageForecast;
     }
 

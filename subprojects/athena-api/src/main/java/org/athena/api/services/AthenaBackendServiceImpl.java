@@ -105,7 +105,7 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
                 .map(CardSalesThisYear::getTotalSales).reduce(0.0, Double::sum);
 
         // extrapolate
-        return new CardBreakageForecast(cardCode, averageYearlyBreakageRate * totalSalesThisYearForCard);
+        return new CardBreakageForecast(cardCode, String.format("%.2f",averageYearlyBreakageRate * totalSalesThisYearForCard));
     }
 
     @Override
