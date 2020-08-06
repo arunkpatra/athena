@@ -38,7 +38,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @CrossOrigin
 @RestController
-@Api(tags = {"Breakage Forecast"}, value = "Operations related to breakage")
+@Api(tags = {"Breakage"}, value = "Operations related to breakage")
 public class BreakageController extends AbstractAthenaRestController {
 
     private final AthenaBackendService athenaBackendService;
@@ -47,8 +47,12 @@ public class BreakageController extends AbstractAthenaRestController {
         this.athenaBackendService = athenaBackendService;
     }
 
-    @ApiOperation(value = "Get breakage forecast by card",
-            notes = "Get breakage forecast by card", response = CardBreakageForecastResponse.class,
+    @ApiOperation(value = "Predict breakage for a card based on historical trends",
+            notes = "Predict breakage for a card based on historical trends, as of today. Give a particular card " +
+                    "type e.g. G-0001 (Happy Student eCard), we try to predict the amount of breakage that will " +
+                    "occur on this card as of today. For this, we first calculate the average yearly breakage that " +
+                    "has occurred on this card. We then extrapolate this for sales on the card that has happened in " +
+                    "this year as of today. Can be parametrized to take in a specific as-of-date.", response = CardBreakageForecastResponse.class,
             consumes = "application/json",
             produces = "application/json")
     @RequestMapping(value = "/breakage/forecast/card/{cardTypeCode}", method = GET)
