@@ -4,6 +4,9 @@
 [![Issues](https://img.shields.io/github/issues/arunkpatra/athena.svg)](https://github.com/arunkpatra/athena/issues)
 [![Latest Release](https://img.shields.io/github/v/release/arunkpatra/athena?include_prereleases&sort=semver)](https://github.com/arunkpatra/athena/releases)
 [![Join the chat at https://gitter.im/athena-chat/community](https://badges.gitter.im/athena-chat/community.svg)](https://gitter.im/athena-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+ 
+<img src="assets/athena.png" width="1280px" alt="Athena" />
+
 
 ## Highlights of this Repo
 | Highlight        | Notes           |
@@ -13,11 +16,7 @@
 | AWS Technologies | [Technologies used by Athena](https://github.com/arunkpatra/athena/wiki/AWS-Technologies-Used)      |  
 | Engineering Best Practices | [Engineering best practices demonstrated in this repo](https://github.com/arunkpatra/athena/wiki/Engineering-Best-Practices-adopted-by-Athena)      |  
 | End to end implementation | [What software components this repo implements](https://github.com/arunkpatra/athena/wiki/Software-components-implemented-by-this-repo)      |  
-| GC Breakage Forecast Approaches | [Discussion on multiple approaches to forecast gift card breakage](https://github.com/arunkpatra/athena/wiki/Gift-Card-Breakage-Forecast-Approaches)      |  
-
-
-
-<img src="assets/athena.png" width="1280px" alt="Athena" />
+| GC Breakage Forecast Approaches | [Discussion on multiple approaches to forecast gift card breakage](https://github.com/arunkpatra/athena/wiki/Gift-Card-Breakage-Forecast-Approaches)      | 
 
 ## Background
 
