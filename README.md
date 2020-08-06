@@ -19,6 +19,8 @@
 
 <img src="assets/athena.png" width="1280px" alt="Athena" />
 
+## Background
+
 US shoppers spent around **$40 Billion** last year on Gift Cards. Around **$1.2 Billion** of this was left unredeemed. Based on existing regulation in various states, governments can claim away this money from 
 businesses selling these gift cards. Interestingly, as one is aware, its best to ensure that customers redeem gift cards 
 as much as possible. That **increases the chances of uplift**, acquire new customers, promote new business and actually allow
