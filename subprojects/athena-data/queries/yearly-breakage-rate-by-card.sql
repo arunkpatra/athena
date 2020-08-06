@@ -1,42 +1,28 @@
--- Yearly breakage rate calculation
--- Description: Given an as-of-date, calculates breakage rate for the prior year by card type.
--- breakage rate for a card is defined as, breakage_rate = (total breakage across ALL cards) / sold value of All cards * 100
+-- Historical, yearly breakage rate calculation
+-- Description: Given an as-of-year, calculates breakage rates by card type, e.g. produce the result below:
 
--- input, as-of-date in YYYY-MM-DD, e.g. 2020-01-01.
--- Although this is ideally run as an yearly job, it may be run quarterly also to calculate quarterly cut off breakage rates.
+-- | card_type_code | total_purchase_value_of_card_type | total_breakage_for_card_type 	| breakage_rate | as_of_year |
+-- | :--- 			| :--- 							 	| :--- 							| :--- 			| :--- 		 |
+-- | G-0001         | 395.00                            | 98.00 						| 24.8100 		| 2019 		 |
+-- | G-0002         | 150.00                            | 7.50 							| 5.0000 		| 2019 		 |
+-- | G-0004         | 25.00 							| 3.00 							| 12.0000 		| 2019 		 |
+-- | G-0005         | 50.00 							| 18.00 						| 36.0000 		| 2019 		 |
+-- | G-0006         | 75.00 							| 3.00 							| 4.0000 		| 2019 		 |
+-- | G-0007         | 50.00                             | 2.00 							| 4.0000 		| 2019 		 |
+-- | G-0034         | 25.00 							| 5.00 							| 20.0000 		| 2019 		 |
+-- | G-0035         | 75.00 							| 19.00 						| 25.3300 		| 2019 		 |
 
--- TODO: Tune it, logically.
+-- Note: Assume G-0001 is equivalent to "Happy Student eCard"
 
-select CC.gc_name,
-       CC.gc_type_code                                              card_type_code,
-       BB.total_purchase_value                                   as ytd_purchase_value,
-       BB.total_breakage_value                                   as ytd_breakage,
-       (BB.total_breakage_value / BB.total_purchase_value) * 100 as breakage_rate,
-       (date_part('year', '2020-07-28') - 1)                     as as_of_year
-from (select ACB.card_type_code,
-             sum(ACB.purchase_value) as total_purchase_value,
-             sum(ACB.breakage)       as total_breakage_value
-      from (select card.gc_uuid,
-                   card.gc_type_code                 as card_type_code,
-                   P.tx_value                        as purchase_value,
-                   R.total_redeemed                  as redeemed_value,
-                   (purchase_value - redeemed_value) as breakage
-            from (select gc_uuid, tx_value from transaction where tx_type = 'PURCHASE') P, -- Purchase value on card instance
-                 (select gc_uuid, sum(tx_value) as total_redeemed
-                  from transaction
-                  where tx_type = 'REDEMPTION'
-                  group by gc_uuid) R,                                                     -- Redeemed value on card instance
-                 (select gc_uuid, date_part('year', gc_expiry_date) as expiry_year
-                  from card
-                  where date_part('year', '2020-07-28') =
-                        (date_part('year', gc_expiry_date) + 1)) E,                        -- Expired card instances in this year (YTD)
-                 card                                                                      -- card instances
-            where P.gc_uuid = E.gc_uuid
-              and E.gc_uuid = card.gc_uuid
-              and E.gc_uuid = R.gc_uuid) ACB, -- Breakage in a card instance
-           card_type C                        -- Card type
-      where C.gc_type_code = ACB.card_type_code
-      group by ACB.card_type_code) BB, -- Total breakage on ALL cards of a particular type
-     card_type CC                      -- Card type
-where BB.card_type_code = CC.gc_type_code
-order by BB.total_breakage_value desc;
+select transaction.gc_type_code                                                 as card_type_code,
+       sum(card.gc_original_value)                                              as total_purchase_value_of_card_type,
+       (total_purchase_value_of_card_type - sum(tx_value))                      as total_breakage_for_card_type,
+       (total_breakage_for_card_type / total_purchase_value_of_card_type) * 100 as breakage_rate,
+       2019                                                                     as as_of_year
+from transaction,
+     card
+where transaction.tx_type = 'REDEMPTION'
+  and date_part('year', card.gc_expiry_date) = 2019
+  and transaction.gc_uuid = card.gc_uuid
+group by transaction.gc_type_code
+order by transaction.gc_type_code
