@@ -8,7 +8,7 @@
 ## Highlights of this Repo
 | Highlight        | Notes           |
 | :------------- |:------------- | 
-| Demo Site      | [Demo URL](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (Status: Switched OFF for now) | 
+| Demo Site      | [REST API Demo URL serving live queries](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (Status: Switched OFF for now) | 
 | Designed for Scale      | <ul><li>[How to scale to exabytes of data](https://github.com/arunkpatra/athena/wiki/Scaling-Athena-DW-:-Redshift)</li><li>[How to elastically scale Athena's REST APIs](https://github.com/arunkpatra/athena/wiki/Elastically-Scaling-Athena-APIs)</li></ul> | 
 | AWS Technologies | [Technologies used by Athena](https://github.com/arunkpatra/athena/wiki/AWS-Technologies-Used)      |  
 | Engineering Best Practices | [Engineering best practices demonstrated in this repo](https://github.com/arunkpatra/athena/wiki/Engineering-Best-Practices-adopted-by-Athena)      |  
