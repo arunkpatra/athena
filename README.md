@@ -11,7 +11,7 @@
 ## Highlights of this Repo [WIP]
 | Highlight        | Notes           |
 | :------------- |:------------- | 
-| **Demo Site**      | A endpoint hosting REST APIs that this repository delivers. The REST APIs execute live queries on the Amazon Redshift. [REST API Demo URL](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (Status: Switched OFF for now) | 
+| **Demo Site**      | Endpoint hosting REST APIs that this repository delivers. The REST APIs execute live queries on an an Amazon Redshift cluster. [REST API Demo URL](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (Current Status: OFF) | 
 | **Scaling Athena**      | Thoughts on how to scale this application to extreme levels beyond the expectations of the [current programming challenge](https://github.com/arunkpatra/athena/issues/11).  <ul><li>[How to scale to exabytes of data](https://github.com/arunkpatra/athena/wiki/Scaling-Athena-DW-:-Redshift)</li><li>[How to elastically scale Athena's REST APIs](https://github.com/arunkpatra/athena/wiki/Elastically-Scaling-Athena-APIs)</li></ul> | 
 | **Technology Stack** | This repo uses a variety of technologies using Java, Spring Data, Gradle, JUnit, **Amazon Redshift** and **S3**. See [Technologies used by Athena](https://github.com/arunkpatra/athena/wiki/AWS-Technologies-Used)      |  
 | **Engineering Best Practices demonstrated** | See [Engineering best practices demonstrated in this repo](https://github.com/arunkpatra/athena/wiki/Engineering-Best-Practices-adopted-by-Athena)      |  
