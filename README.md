@@ -5,7 +5,17 @@
 [![Latest Release](https://img.shields.io/github/v/release/arunkpatra/athena?include_prereleases&sort=semver)](https://github.com/arunkpatra/athena/releases)
 [![Join the chat at https://gitter.im/athena-chat/community](https://badges.gitter.im/athena-chat/community.svg)](https://gitter.im/athena-chat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-[Demo URL](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (Status: Switched OFF for now)
+## Highlights of this Repo
+| Highlight        | Notes           |
+| :------------- |:------------- | 
+| Demo Site      | [Demo URL](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (Status: Switched OFF for now) | 
+| Designed for Scale      | <ul><li>[How to scale to exabytes of data](https://github.com/arunkpatra/athena/wiki/Scaling-Athena-DW-:-Redshift)</li><li>[How to elastically scale Athena's REST APIs](https://github.com/arunkpatra/athena/wiki/Elastically-Scaling-Athena-APIs)</li></ul> | 
+| AWS Technologies | [Technologies used by Athena](https://github.com/arunkpatra/athena/wiki/AWS-Technologies-Used)      |  
+| Engineering Best Practices | [Engineering best practices demonstrated in this repo](https://github.com/arunkpatra/athena/wiki/Engineering-Best-Practices-adopted-by-Athena)      |  
+| End to end implementation | [What software components this repo implements](https://github.com/arunkpatra/athena/wiki/Software-components-implemented-by-this-repo)      |  
+| GC Breakage Forecast Approaches | [Discussion on multiple approaches to forecast gift card breakage](https://github.com/arunkpatra/athena/wiki/Gift-Card-Breakage-Forecast-Approaches)      |  
+
+
 
 <img src="assets/athena.png" width="1280px" alt="Athena" />
 
