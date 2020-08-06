@@ -85,7 +85,7 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
         // For given card what was breakages in prior years? Calculate average
         List<YearlyBreakageRate> yearlyBreakageRates =
                 jdbcTemplate.query(HISTORICAL_BREAKAGE_RATE_BY_CARD, new Object[]{cardCode},
-                        (rs, rowNum) -> new YearlyBreakageRate(rs.getString(2).trim(), rs.getFloat(5), rs.getInt(6))
+                        (rs, rowNum) -> new YearlyBreakageRate(rs.getString(1).trim(), rs.getFloat(4), rs.getInt(5))
                 );
 
         OptionalDouble optionalAverageRate = yearlyBreakageRates

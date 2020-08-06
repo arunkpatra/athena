@@ -320,7 +320,7 @@ VALUES
 
 
 
-INSERT INTO  historical_breakage_rate(gc_name,gc_type_code,ytd_purchase_value,ytd_breakage,breakage_rate,as_of_year)
+INSERT INTO  historical_breakage_rate(gc_type_code,ytd_purchase_value,ytd_breakage,breakage_rate,as_of_year)
 VALUES
-('Happy Student Gift Card','G-0001',150.0,106.00,70.66,2019),
-('Happy You eGift Card','G-0007',50.0,23.00,46.00,2019);
+('G-0001',150.0,106.00,70.66,2019),
+('G-0007',50.0,23.00,46.00,2019);

@@ -65,11 +65,9 @@ create table transaction
 -- transaction log
 create table historical_breakage_rate
 (
-    gc_name            varchar(64) not null,
-    gc_type_code       varchar(16),
+    gc_type_code       varchar(16) not null,
     ytd_purchase_value decimal(9, 2),
     ytd_breakage       decimal(9, 2),
     breakage_rate      decimal(5, 2),
     as_of_year         integer
-
 );
