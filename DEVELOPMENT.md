@@ -53,3 +53,15 @@ If you want to build **athena** from source , follow the steps mentioned here.
         ```
     * Access **Swagger UI** at http://localhost:8080/swagger-ui.html. You should be able to invoke API calls.  
     <img src="assets/athena-swagger-ui.png" width="1280px" alt="Athena" />
+
+## Kubernetes Deployment
+
+- You can create the docker image for `athena-api` using `gradle buildDockerImage`.
+- Push it to a local Docker registry (listening at port 5000) using `gradle pushDockerImage`
+- Deploy to a locally running Kubernetes cluster using `kubectl apply -f athena-deployment.yaml` from the `subprojects\athena-deployment\kubernetes` directory.
+- API will be available at http://localhost:30000/swagger-ui.html
+- Cleanup. Delete the application from the cluster using `kubectl delete -f athena-deployment.yaml` from the `subprojects\athena-deployment\kubernetes` directory.
+
+> You **must edit** the athena-deployment.yaml file and provide valid values for your Amazon Redshift cluster, Redshift user and password. 
+> Before you can run data load scripts, you need to copy data to your S3 bucket from the `subprojects\athena-data\data\*.csv` files. Also based on your bucket name, edit the `subprojects\athena-data\data\redshift-data-load-v2.sql` file.
+> Load test data to your cluster by first running the `subprojects\athena-data\data\athena-ddl-v2.sql` script and then the `subprojects\athena-data\data\redshift-data-load-v2.sql` script.
