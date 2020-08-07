@@ -54,9 +54,11 @@ public class SwaggerConfig implements WebMvcConfigurer {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "Athena REST API Documentation",
-                "REST APIs for Athena. Athena is an experimental application to demonstrate Gift Card " +
-                        "forecasting techniques. We use a simple method based on historical trend analysis. Various " +
-                        "operations related to Customer, Merchant and Cards can be performed.",
+                "REST APIs for Athena. Athena is an demo application that extracts insights " +
+                        "from gift card transaction log, customer, merchant and card data. To predict breakage, we " +
+                        "use a simple method based on historical trend analysis(see wiki pages for alternate " +
+                        "approaches at http://github.com/arunkpatra/athena/wiki). Various " +
+                        "operations related to breakage, customers, merchants and cards are demonstrated.",
                 "1.0.0",
                 "Terms of service",
                 new Contact("Athena", "www.athena.org", "info@athena.org"),
