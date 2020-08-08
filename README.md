@@ -8,7 +8,7 @@
 <img src="assets/athena.png" width="1280px" alt="Athena" />
 
 
-## Highlights of this Repo
+## Hilights of this Repo
 | Highlight        | Notes           |
 | :------------- |:------------- | 
 | **Demo Site**      | Endpoint hosting REST APIs that this repository delivers. The REST APIs execute live queries on an an Amazon Redshift cluster. [REST API Demo URL](http://athenaapi-env-1.eba-9wbzews5.ap-south-1.elasticbeanstalk.com/swagger-ui.html) (Current Status: **Available**) | 
