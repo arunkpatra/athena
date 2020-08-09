@@ -28,12 +28,6 @@ package org.athena.api.exceptions;
  * Base exception for this application
  */
 public class AthenaException extends Exception {
-    public AthenaException() {
-    }
-
-    public AthenaException(String message) {
-        super(message);
-    }
 
     public AthenaException(String message, Throwable cause) {
         super(message, cause);
@@ -41,9 +35,5 @@ public class AthenaException extends Exception {
 
     public AthenaException(Throwable cause) {
         super(cause);
-    }
-
-    public AthenaException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
     }
 }

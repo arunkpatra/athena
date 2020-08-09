@@ -25,10 +25,8 @@ package org.athena.api.controllers;
 
 import io.swagger.annotations.*;
 import org.athena.api.exceptions.AthenaException;
-import org.athena.api.model.CardBreakageForecastResponse;
 import org.athena.api.model.ErrorResponse;
 import org.athena.api.model.MyCardDetailsResponse;
-import org.athena.api.model.TopGrossingMerchantsResponse;
 import org.athena.api.services.AthenaBackendService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -147,10 +147,4 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
     public List<CardBreakage> getMerchantBreakageByCustomerSegment(String merchantID, String segment) {
         throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
     }
-
-    //TODO: Implement me
-    @Override
-    public List<MerchantSales> getWorstPerformingMerchants() {
-        throw new UnsupportedOperationException("Coming soon. This API has not been implemented yet!");
-    }
 }

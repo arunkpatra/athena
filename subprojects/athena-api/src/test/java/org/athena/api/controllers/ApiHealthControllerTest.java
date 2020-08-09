@@ -22,34 +22,32 @@
  * SOFTWARE.
  */
 
-package org.athena.api.services;
+package org.athena.api.controllers;
 
-import org.athena.api.model.*;
+import org.athena.api.AbstractTest;
+import org.athena.api.model.HealthStatus;
+import org.junit.Assert;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface AthenaBackendService {
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-    List<TopSellingCardByQuantity> getTopSellingCardsByQuantity();
+public class ApiHealthControllerTest extends AbstractTest {
 
-    List<TopGrossingCard> getTopGrossingCards();
+    private static final Logger LOGGER = LoggerFactory.getLogger(ApiHealthControllerTest.class);
 
-    List<MerchantSales> getTopGrossingMerchants();
-
-    List<MerchantBreakage> getMerchantBreakages();
-
-    List<CardBreakage> getCardBreakages();
-
-    List<BusinessModelBreakage> getMerchantBreakageByBusinessModel(String merchantID);
-
-    List<CardCategoryBreakage> getMerchantBreakageByCardCategory(String merchantID);
-
-    List<CardBreakage> getMerchantBreakageByCardMedium(String merchantID, String medium);
-
-    List<CardBreakage> getMerchantBreakageByCustomerSegment(String merchantID, String segment);
-
-    CardBreakageForecast getBreakageForecastForCard(String cardCode);
-
-    List<CustomerCardDetails> getCustomerCardDetails(String customerID);
-
+    @Test
+    public void getCardBreakageTest() throws Exception {
+        HealthStatus response = httpExchange(
+                get("/"),
+                status().isOk(),
+                Optional.empty(),
+                Optional.empty(),
+                HealthStatus.class);
+        Assert.assertEquals("Application expected in UP status", response.getApiHealthStatus(), "UP");
+    }
 }

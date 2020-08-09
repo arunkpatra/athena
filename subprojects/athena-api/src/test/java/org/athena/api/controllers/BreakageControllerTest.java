@@ -26,8 +26,6 @@ package org.athena.api.controllers;
 
 import org.athena.api.AbstractTest;
 import org.athena.api.model.CardBreakageForecastResponse;
-import org.athena.api.model.CardBreakageResponse;
-import org.athena.api.model.MerchantBreakageResponse;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -44,7 +42,7 @@ public class BreakageControllerTest extends AbstractTest {
 
     @Test
     public void getCardBreakageForecastTest() throws Exception {
-        CardBreakageForecastResponse response = mockHttpExchange(
+        CardBreakageForecastResponse response = httpExchange(
                 get("/api/breakage/forecast/card/G-0001"),
                 status().isOk(),
                 Optional.empty(),

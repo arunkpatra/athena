@@ -44,7 +44,7 @@ public class MerchantControllerTest extends AbstractTest {
     @Test
     public void getTopGrossingMerchantsTest() throws Exception {
         LOGGER.info("Query: " + NativeQueries.TOP_GROSSING_MERCHANTS);
-        TopGrossingMerchantsResponse response = mockHttpExchange(
+        TopGrossingMerchantsResponse response = httpExchange(
                 get("/api/merchant/topgrossing"),
                 status().isOk(),
                 Optional.empty(),
@@ -57,7 +57,7 @@ public class MerchantControllerTest extends AbstractTest {
 
     @Test
     public void getMerchantBreakageTest() throws Exception {
-        MerchantBreakageResponse response = mockHttpExchange(
+        MerchantBreakageResponse response = httpExchange(
                 get("/api/merchant/breakage"),
                 status().isOk(),
                 Optional.empty(),
@@ -69,18 +69,8 @@ public class MerchantControllerTest extends AbstractTest {
     }
 
     @Test
-    public void getWorstGrossingMerchantsTest() throws Exception {
-        ErrorResponse response = mockHttpExchange(
-                get("/api/merchant/worstgrossing"),
-                status().isInternalServerError(),
-                Optional.empty(),
-                Optional.empty(),
-                ErrorResponse.class);
-    }
-
-    @Test
     public void getMerchantBreakageForecastByCardCategory() throws Exception {
-        MerchantBreakageByCardCategoryResponse response = mockHttpExchange(
+        MerchantBreakageByCardCategoryResponse response = httpExchange(
                 get("/api/merchant/M-0001/breakage/category"),
                 status().isOk(),
                 Optional.empty(),
@@ -95,7 +85,7 @@ public class MerchantControllerTest extends AbstractTest {
 
     @Test
     public void getMerchantBreakageForecastByCardMedium() throws Exception {
-        MerchantBreakageByCardMediumResponse response = mockHttpExchange(
+        MerchantBreakageByCardMediumResponse response = httpExchange(
                 get("/api/merchant/M-0001/breakage/cardmedium/Physical"),
                 status().isInternalServerError(),
                 Optional.empty(),
@@ -106,7 +96,7 @@ public class MerchantControllerTest extends AbstractTest {
 
     @Test
     public void getMerchantBreakageForecastByBusinessModel() throws Exception {
-        MerchantBreakageByBusinessModelResponse response = mockHttpExchange(
+        MerchantBreakageByBusinessModelResponse response = httpExchange(
                 get("/api/merchant/M-0001/breakage/businessmodel"),
                 status().isOk(),
                 Optional.empty(),
@@ -120,7 +110,7 @@ public class MerchantControllerTest extends AbstractTest {
 
     @Test
     public void getMerchantBreakageForecastByCustomerSegment() throws Exception {
-        MerchantBreakageByCustomerSegmentResponse response = mockHttpExchange(
+        MerchantBreakageByCustomerSegmentResponse response = httpExchange(
                 get("/api/merchant/M-0001/breakage/customersegment/Adult"),
                 status().isInternalServerError(),
                 Optional.empty(),

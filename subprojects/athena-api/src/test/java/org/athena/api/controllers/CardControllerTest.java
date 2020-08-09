@@ -45,7 +45,7 @@ public class CardControllerTest extends AbstractTest {
 
     @Test
     public void getCardBreakageTest() throws Exception {
-        CardBreakageResponse response = mockHttpExchange(
+        CardBreakageResponse response = httpExchange(
                 get("/api/card/breakage"),
                 status().isOk(),
                 Optional.empty(),
@@ -59,7 +59,7 @@ public class CardControllerTest extends AbstractTest {
     @Test
     public void getTopSellingCardsByQuantityTest() throws Exception {
         LOGGER.info("Query: " + NativeQueries.TOP_SELLING_CARDS_QUANTITY);
-        TopSellingCardsByQuantityResponse response = mockHttpExchange(
+        TopSellingCardsByQuantityResponse response = httpExchange(
                 get("/api/card/topselling"),
                 status().isOk(),
                 Optional.empty(),
@@ -73,7 +73,7 @@ public class CardControllerTest extends AbstractTest {
     @Test
     public void getTopGrossingCardsTest() throws Exception {
         LOGGER.info("Query: " + NativeQueries.TOP_GROSSING_CARDS);
-        TopGrossingCardsResponse response = mockHttpExchange(
+        TopGrossingCardsResponse response = httpExchange(
                 get("/api/card/topgrossing"),
                 status().isOk(),
                 Optional.empty(),

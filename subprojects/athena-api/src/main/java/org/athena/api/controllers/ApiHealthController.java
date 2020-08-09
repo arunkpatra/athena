@@ -15,7 +15,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @CrossOrigin
 @RestController
 @Api(tags = {"API Health"}, value = "Health", hidden = true)
-public class HealthController {
+public class ApiHealthController {
 
     @ApiOperation(value = "Health",
             notes = "Get top grossing merchants by volume", response = HealthStatus.class,

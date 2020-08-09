@@ -84,26 +84,6 @@ public class MerchantController extends AbstractAthenaRestController {
         }
     }
 
-    @ApiOperation(value = "WIP: Worst performing merchants by volume",
-            notes = "Get top grossing merchants by volume", response = TopGrossingMerchantsResponse.class,
-            consumes = "application/json",
-            produces = "application/json", hidden = true)
-    @RequestMapping(value = "/merchant/worstgrossing", method = GET)
-    @ResponseBody
-    @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Worst grossing merchants were retrieved",
-                    response = TopGrossingMerchantsResponse.class),
-            @ApiResponse(code = 500, message = "An internal error occurred.",
-                    response = ErrorResponse.class)
-    })
-    public ResponseEntity<TopGrossingMerchantsResponse> worstPerformingMerchants() throws AthenaException {
-        try {
-            return new ResponseEntity<>(new TopGrossingMerchantsResponse(athenaBackendService.getWorstPerformingMerchants()), HttpStatus.OK);
-        } catch (Throwable t) {
-            throw new AthenaException(t.getMessage(), t);
-        }
-    }
-
     @ApiOperation(value = "Get breakage for a merchant by card category",
             notes = "Get breakage for a merchant by card category(calculated over the last one year).", response = MerchantBreakageByCardCategoryResponse.class,
             consumes = "application/json",

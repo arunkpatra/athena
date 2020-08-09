@@ -58,6 +58,7 @@ public abstract class AbstractTest {
     public static PostgreSQLContainer postgreSQLContainer = AthenaTestPostgresqlContainer.getInstance();
     protected static String SUCCESS_CHAR = "✓ ";
     protected static String FAILURE_CHAR = "✕ ";
+    protected static String GENERIC_ERROR_MESSAGE = "An error occurred";
     protected static String RUNNING_CHAR = "\uD83C\uDFC3 ";
     @Autowired
     protected MockMvc mockMvc;
@@ -73,7 +74,7 @@ public abstract class AbstractTest {
     }
 
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
-    protected <T, M> T mockHttpExchange(
+    protected <T, M> T httpExchange(
             MockHttpServletRequestBuilder requestBuilder,
             ResultMatcher resultMatcher,
             Optional<Object> content,
@@ -96,4 +97,25 @@ public abstract class AbstractTest {
         return response;
     }
 
+    @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
+    protected <T, S> T mockHttpExchange(MockHttpServletRequestBuilder requestBuilder,
+                                                     ResultMatcher resultMatcher,
+                                                     Optional<Object> content,
+                                                     Optional<String> expectedErrorMessage,
+                                                     Class<T> type) throws Exception {
+        content.ifPresent(c -> requestBuilder.content(asJsonString(c)));
+        MvcResult mvcResult = mockMvc.perform(requestBuilder)
+                .andExpect(resultMatcher)
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andReturn();
+        T response = objectMapper.readValue(mvcResult.getResponse().getContentAsString(), type);
+        expectedErrorMessage.ifPresent(m -> {
+            if (response instanceof ErrorResponse) {
+                Assert.assertTrue(FAILURE_CHAR + "Did not get expected error description",
+                        ((ErrorResponse) response).getErrorDescription().contains(m));
+                LOGGER.info(SUCCESS_CHAR + "Receive expected error message: {}", expectedErrorMessage.get());
+            }
+        });
+        return response;
+    }
 }
