@@ -24,9 +24,9 @@
 
 package org.athena.api.queries;
 
-public class NativeQueries {
+public interface NativeQueries {
 
-    public static final String TOP_SELLING_CARDS_QUANTITY =
+    String TOP_SELLING_CARDS_QUANTITY =
             "select gc_name, sale_qty\n" +
                     "from (select count(*) as sale_qty, gc_type_code\n" +
                     "      from transaction\n" +
@@ -38,7 +38,7 @@ public class NativeQueries {
                     "where Q.gc_type_code = card_type.gc_type_code\n" +
                     "order by Q.sale_qty desc;";
 
-    public static final String TOP_GROSSING_CARDS =
+    String TOP_GROSSING_CARDS =
             "select gc_name, total_sales\n" +
                     "from (select sum(tx_value) as total_sales, gc_type_code\n" +
                     "      from transaction\n" +
@@ -50,7 +50,7 @@ public class NativeQueries {
                     "where V.gc_type_code = card_type.gc_type_code\n" +
                     "order by V.total_sales desc;";
 
-    public static final String TOP_GROSSING_MERCHANTS =
+    String TOP_GROSSING_MERCHANTS =
             "select merchant.merchant_name, gross_merchant_sale\n" +
                     "from (select sum(tx_value) as gross_merchant_sale, merchant_code\n" +
                     "      from transaction\n" +
@@ -61,7 +61,7 @@ public class NativeQueries {
                     "where MV.merchant_code = merchant.merchant_code\n" +
                     "order by MV.gross_merchant_sale desc;";
 
-    public static final String BREAKAGE_BY_MERCHANT =
+    String BREAKAGE_BY_MERCHANT =
             "select merchant_name, AMB.merchant_breakage, CURRENT_DATE as as_of_date\n" +
                     "from (select merchant_code, sum(breakage) as merchant_breakage\n" +
                     "      from (select P.merchant_code                   as merchant_code,\n" +
@@ -88,7 +88,7 @@ public class NativeQueries {
                     "where AMB.merchant_code = merchant.merchant_code\n" +
                     "order by AMB.merchant_breakage desc;";
 
-    public static final String BREAKAGE_BY_CARD =
+    String BREAKAGE_BY_CARD =
             "select CC.gc_name, CC.gc_type_code card_type_code,\n" +
                     "       BB.total_purchase_value as ytd_purchase_value,\n" +
                     "       BB.total_breakage_value as ytd_breakage, (BB.total_breakage_value / BB.total_purchase_value)* 100 as breakage_rate,\n" +
@@ -119,10 +119,10 @@ public class NativeQueries {
                     "where BB.card_type_code = CC.gc_type_code\n" +
                     "order by BB.total_breakage_value desc;";
 
-    public static final String HISTORICAL_BREAKAGE_RATE_BY_CARD =
+    String HISTORICAL_BREAKAGE_RATE_BY_CARD =
             "select * from historical_breakage_rate WHERE gc_type_code = ?;";
 
-    public static final String SALES_THIS_YEAR_BY_CARD =
+    String SALES_THIS_YEAR_BY_CARD =
             "select gc_name, V.gc_type_code, total_sales, date_part('year', CURRENT_DATE) as year\n" +
                     "from (select sum(tx_value) as total_sales, gc_type_code\n" +
                     "      from transaction\n" +
@@ -133,7 +133,7 @@ public class NativeQueries {
                     "where V.gc_type_code = card_type.gc_type_code\n" +
                     "order by V.total_sales desc;";
 
-    public static final String VALUE_ON_CARDS_BY_CUSTOMER =
+    String VALUE_ON_CARDS_BY_CUSTOMER =
             "select CT.gc_name, P.card_id, C.gc_expiry_date, purchase_value, redeemed_value, (purchase_value - redeemed_value) as unredeemed   from\n" +
                     "    (select sum(transaction.tx_value) as purchase_value, card.gc_uuid as card_id from transaction, card\n" +
                     "        where transaction.tx_type = 'PURCHASE' and\n" +
@@ -151,7 +151,7 @@ public class NativeQueries {
                     "      C.gc_type_code = CT.gc_type_code\n" +
                     "order by gc_expiry_date;";
 
-    public static final String MERCHANT_BREAKAGE_BY_BUSINESS_MODEL =
+    String MERCHANT_BREAKAGE_BY_BUSINESS_MODEL =
             "select business_model, sum(breakage) as merchant_breakage_by_business_model\n" +
                     "        from (select  P.tx_value                        as purchase_value,\n" +
                     "                   R.total_redeemed                  as redeemed_value,\n" +
@@ -177,7 +177,7 @@ public class NativeQueries {
                     "              and E.gc_uuid = R.gc_uuid) MB\n" +
                     "      group by business_model;";
 
-    public static final String MERCHANT_BREAKAGE_BY_CARD_CATEGORY =
+    String MERCHANT_BREAKAGE_BY_CARD_CATEGORY =
             "select card_category, sum(breakage) as merchant_breakage_by_card_category\n" +
                     "        from (select  P.tx_value                        as purchase_value,\n" +
                     "                   R.total_redeemed                  as redeemed_value,\n" +

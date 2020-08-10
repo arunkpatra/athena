@@ -28,12 +28,10 @@ public class YearlyBreakageRate {
 
     private final String cartTypeCode;
     private final float breakageRate;
-    private final int year;
 
-    public YearlyBreakageRate(String cartTypeCode, float breakageRate, int year) {
+    public YearlyBreakageRate(String cartTypeCode, float breakageRate) {
         this.cartTypeCode = cartTypeCode;
         this.breakageRate = breakageRate;
-        this.year = year;
     }
 
     public String getCartTypeCode() {
@@ -42,9 +40,5 @@ public class YearlyBreakageRate {
 
     public float getBreakageRate() {
         return breakageRate;
-    }
-
-    public int getYear() {
-        return year;
     }
 }

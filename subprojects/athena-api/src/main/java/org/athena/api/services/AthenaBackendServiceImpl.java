@@ -85,7 +85,7 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
         // For given card what was breakages in prior years? Calculate average
         List<YearlyBreakageRate> yearlyBreakageRates =
                 jdbcTemplate.query(HISTORICAL_BREAKAGE_RATE_BY_CARD, new Object[]{cardCode},
-                        (rs, rowNum) -> new YearlyBreakageRate(rs.getString(1).trim(), rs.getFloat(4), rs.getInt(5))
+                        (rs, rowNum) -> new YearlyBreakageRate(rs.getString(1).trim(), rs.getFloat(4))
                 );
 
         OptionalDouble optionalAverageRate = yearlyBreakageRates
@@ -98,8 +98,7 @@ public class AthenaBackendServiceImpl implements AthenaBackendService {
 
         // What is the total sales volumes in this year for this card?
         List<CardSalesThisYear> cardSalesThisYear = jdbcTemplate.query(SALES_THIS_YEAR_BY_CARD, new Object[]{cardCode},
-                (rs, rowNum) -> new CardSalesThisYear(rs.getString(2).trim(), rs.getDouble(3),
-                        rs.getInt(4))
+                (rs, rowNum) -> new CardSalesThisYear(rs.getString(2).trim(), rs.getDouble(3))
         );
         double totalSalesThisYearForCard = cardSalesThisYear.stream().filter(cs -> cs.getCardTypeCode().equalsIgnoreCase(cardCode))
                 .map(CardSalesThisYear::getTotalSales).reduce(0.0, Double::sum);

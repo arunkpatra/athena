@@ -14,8 +14,4 @@ public class HealthStatus {
     public String getApiHealthStatus() {
         return apiHealthStatus;
     }
-
-    public void setApiHealthStatus(String apiHealthStatus) {
-        this.apiHealthStatus = apiHealthStatus;
-    }
 }
