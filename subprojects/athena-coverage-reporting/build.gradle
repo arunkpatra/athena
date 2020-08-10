@@ -91,4 +91,3 @@ tasks.coveralls {
 
     dependsOn jacocoRootReport
 }
-//tasks.build.dependsOn(tasks.generateThingverseCoverageReport)
