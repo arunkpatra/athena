@@ -68,7 +68,7 @@ task jacocoRootReport(type: JacocoReport, group: 'Coverage reports') {
                 dir: it,
                 exclude: [
                         '**/org/athena/junk/**/*',
-                        '**/org/athena/api/queries/**/*'
+                        '**/org/athena/api/AthenaAPIApplication**'
                 ]
         )
     }
