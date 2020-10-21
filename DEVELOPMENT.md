@@ -2,7 +2,7 @@
 
 If you want to build **athena** from source , follow the steps mentioned here.
 
-## System Requirements (for building and running Thingverse)
+## System Requirements (for building and running Athena)
 
 - Memory: 2 GB minimum, 8 GB recommended
 - CPU Cores: 2 Cores, 4 Cores recommended
