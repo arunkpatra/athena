@@ -72,3 +72,6 @@ The APIs developed as part of the programming challenge:
 
 ## Mantra for Success
 _Thing big, start small..._ The design and code developed as part of the programming challenge addresses a thin sliver of the broad objectives mentioned earlier.
+
+## Maintenance
+Arun Patra maintains this repo
